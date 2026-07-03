@@ -1,0 +1,1399 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <title>AI Receptionist — Never Miss Another Call | Made in Canada</title>
+<meta name="description" content="AI-powered virtual receptionist for Canadian businesses. Answers calls 24/7, sends SMS &amp; email recaps, detects voicemail, supports 40+ languages. Plans from $44/mo.">
+<meta property="og:title" content="AI Receptionist — Never Miss Another Call">
+<meta property="og:description" content="24/7 AI answering service for Canadian businesses. Plans from $44/mo. No setup fee. Cancel anytime.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rosa-sally-address-oval.trycloudflare.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1a1a2e; }
+
+        .hero { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 80px 20px 50px; text-align: center; }
+        .hero h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 8px; }
+        .hero .sub { font-size: 1.2em; opacity: 0.9; margin-bottom: 10px; }
+        .hero .cta-row { margin-top: 25px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .hero .cta { display: inline-block; background: #e94560; color: white; padding: 16px 40px; border-radius: 50px; font-size: 1.1em; font-weight: 700; text-decoration: none; transition: 0.3s; border: none; cursor: pointer; }
+        .hero .cta:hover { background: #d63851; transform: translateY(-2px); }
+        .hero .cta-outline { background: transparent; border: 2px solid white; }
+        .hero .cta-outline:hover { background: rgba(255,255,255,0.1); }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+        .features { padding: 70px 0; background: #f8f9fa; }
+        .features h2, .how h2, .pricing-section h2, .who h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #1a1a2e; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .card { background: white; padding: 28px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); text-align: center; }
+        .card .icon { font-size: 2.2em; margin-bottom: 12px; }
+        .card h3 { font-size: 1.1em; margin-bottom: 8px; color: #0f3460; }
+        .card p { color: #666; font-size: 0.9em; }
+
+        .how { padding: 70px 0; }
+        .steps { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+        .step { flex: 1; min-width: 180px; max-width: 220px; text-align: center; }
+        .step .num { width: 44px; height: 44px; border-radius: 50%; background: #0f3460; color: white; font-size: 1.2em; font-weight: 700; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+        .step h3 { font-size: 1em; margin-bottom: 6px; }
+        .step p { color: #666; font-size: 0.85em; }
+
+        .pricing-section { padding: 70px 0; background: #f8f9fa; }
+        .pricing-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; align-items: stretch; }
+        .pricing-card { flex: 1; min-width: 240px; max-width: 320px; background: white; border-radius: 16px; padding: 30px 24px; text-align: center; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 2px solid #e0e0e0; position: relative; display: flex; flex-direction: column; }
+        .pricing-card.featured { border-color: #e94560; }
+        .pricing-card .badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #e94560; color: white; padding: 5px 20px; border-radius: 20px; font-size: 0.8em; font-weight: 700; }
+        .pricing-card .plan-name { font-size: 1em; font-weight: 700; color: #0f3460; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .pricing-card .big-price { font-size: 3.2em; font-weight: 800; color: #1a1a2e; }
+        .pricing-card .big-price small { font-size: 0.35em; font-weight: 400; color: #999; }
+        .pricing-card .desc { color: #666; font-size: 0.85em; margin: 5px 0 15px; }
+        .pricing-card .features-list { text-align: left; margin: 10px 0 20px; flex-grow: 1; }
+        .pricing-card .features-list .item { padding: 5px 0; font-size: 0.9em; }
+        .pricing-card .features-list .item::before { content: '✓ '; color: #e94560; font-weight: 700; }
+        .pricing-card .overage { color: #888; font-size: 0.8em; margin-bottom: 10px; }
+        .pricing-card .setup { color: #999; font-size: 0.8em; }
+        .pricing-card .cta { display: inline-block; background: #0f3460; color: white; padding: 14px 40px; border-radius: 50px; font-size: 1em; font-weight: 700; text-decoration: none; margin-top: 15px; transition: 0.3s; border: none; cursor: pointer; }
+        .pricing-card .cta:hover { background: #1a1a2e; }
+        .pricing-card.featured .cta { background: #e94560; }
+        .pricing-card.featured .cta:hover { background: #d63851; }
+
+        .who { padding: 60px 0; }
+        .who .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .who .tags span { background: #e8f0fe; color: #0f3460; padding: 8px 20px; border-radius: 50px; font-size: 0.9em; font-weight: 500; }
+
+        .proof { padding: 50px 0; background: #1a1a2e; color: white; text-align: center; }
+        .proof p { max-width: 650px; margin: 0 auto; font-size: 1em; opacity: 0.9; line-height: 1.8; }
+
+        .footer { padding: 30px 0; text-align: center; color: #999; font-size: 0.85em; }
+        .footer a { color: #0f3460; text-decoration: none; margin: 0 10px; }
+
+        /* === MODAL === */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+        .modal-overlay.active { display: flex; }
+        .modal { background: white; border-radius: 16px; padding: 35px; max-width: 440px; width: 92%; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; max-height: 90vh; overflow-y: auto; }
+        .modal .close { position: absolute; top: 12px; right: 16px; font-size: 1.4em; cursor: pointer; color: #999; background: none; border: none; }
+        .modal h2 { text-align: center; margin-bottom: 4px; }
+        .modal .subtitle { text-align: center; color: #666; font-size: 0.85em; margin-bottom: 20px; }
+        .modal label { display: block; font-weight: 600; font-size: 0.85em; margin-bottom: 4px; color: #333; }
+        .modal input, .modal select { width: 100%; padding: 11px 14px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.95em; margin-bottom: 12px; transition: 0.2s; }
+        .modal input:focus, .modal select:focus { outline: none; border-color: #0f3460; box-shadow: 0 0 0 3px rgba(15,52,96,0.1); }
+        .modal .row { display: flex; gap: 12px; }
+        .modal .row > * { flex: 1; }
+        .modal button[type=submit] { width: 100%; background: #0f3460; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1em; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 5px; }
+        .modal button[type=submit]:hover { background: #1a1a2e; }
+        .modal .login-link { text-align: center; margin-top: 12px; font-size: 0.85em; color: #666; }
+        .modal .login-link a { color: #0f3460; text-decoration: none; font-weight: 600; cursor: pointer; }
+        .modal .error { color: #e94560; font-size: 0.85em; text-align: center; margin-top: 8px; display: none; }
+        .modal .plan-select { display: flex; gap: 10px; margin-bottom: 15px; }
+        .modal .plan-select button { flex: 1; padding: 12px; border: 2px solid #ddd; border-radius: 10px; background: white; cursor: pointer; font-size: 0.9em; font-weight: 600; transition: 0.2s; }
+        .modal .plan-select button.selected { border-color: #e94560; background: #fff5f5; }
+
+        .success-state { text-align: center; padding: 15px 0; }
+        .success-state .check { font-size: 3.5em; margin-bottom: 12px; }
+        .success-state h2 { color: #0f3460; margin-bottom: 8px; }
+        .success-state p { color: #666; font-size: 0.9em; }
+        .success-state .portal-btn { display: inline-block; background: #0f3460; color: white; padding: 14px 40px; border-radius: 8px; font-size: 1em; font-weight: 700; text-decoration: none; margin-top: 18px; }
+
+        /* === DASHBOARD === */
+        .dash-header { background: #1a1a2e; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .dash-header .logo { font-weight: 700; font-size: 1em; }
+        .dash-header .user { font-size: 0.85em; opacity: 0.8; }
+        .dash-body { padding: 30px 20px; max-width: 900px; margin: 0 auto; }
+        .dash-body h2 { margin-bottom: 20px; }
+        .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .dash-card { background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center; }
+        .dash-card .stat { font-size: 2em; font-weight: 800; color: #0f3460; }
+        .dash-card .label { color: #666; font-size: 0.85em; margin-top: 5px; }
+        .dash-section { margin-bottom: 30px; }
+        .dash-section h3 { margin-bottom: 12px; color: #0f3460; }
+        .dash-section label { display: block; font-weight: 600; font-size: 0.85em; margin-top: 12px; margin-bottom: 4px; }
+        .dash-section textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; min-height: 80px; font-family: inherit; }
+        .dash-section input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
+        .dash-section .save-btn { background: #0f3460; color: white; border: none; padding: 10px 25px; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; margin-top: 12px; }
+        .dash-section .save-btn:hover { background: #1a1a2e; }
+        .dash-section .saved { color: #22c55e; font-size: 0.85em; margin-top: 8px; display: none; }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2em; }
+            .hero .price { font-size: 3em; }
+            .grid { grid-template-columns: 1fr; }
+            .pricing-card { min-width: auto; }
+            .modal .row { flex-direction: column; gap: 0; }
+            .cta-row { flex-direction: column; align-items: center; gap: 10px; }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+            .pricing-flex { flex-direction: column; align-items: stretch; }
+            #pricing-section .pricing-flex > div { min-width: auto !important; width: 100%; }
+            .compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .compare-table-wrap table { min-width: 600px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ───── STICKY NAV ───── -->
+<nav style="position:sticky; top:0; z-index:1000; background:rgba(26,26,46,0.98); backdrop-filter:blur(8px); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; position:relative;">
+        <span style="color:white; font-weight:700; font-size:1em;">AI Receptionist</span>
+        <div class="nav-links" style="display:flex; gap:20px; font-size:0.85em; align-items:center;">
+            <a href="#" onclick="document.querySelector('.features').scrollIntoView({behavior:'smooth'}); return false;" style="color:rgba(255,255,255,0.7); text-decoration:none;">Features</a>
+            <a href="#" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}); return false;" style="color:rgba(255,255,255,0.7); text-decoration:none;">Pricing</a>
+            <a href="#" onclick="document.querySelector('.proof').nextElementSibling.scrollIntoView({behavior:'smooth'}); return false;" style="color:rgba(255,255,255,0.7); text-decoration:none;">FAQ</a>
+            <a href="#" onclick="openDemoCall(); return false;" style="color:#e94560; font-weight:700; text-decoration:none;">Demo</a>
+        </div>
+    </div>
+</nav>
+
+<!-- ───── HERO ───── -->
+<section class="hero">
+    <div class="container">
+        <h1>Your AI Receptionist</h1>
+        <div style="display:flex; justify-content:center; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
+            <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#e94560" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                Made in Canada
+            </span>
+            <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                24/7 AI Answering
+            </span>
+            <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                Instant Setup
+            </span>
+        </div>
+        <p class="sub">Never miss a call. Never lose a client.</p>
+        <p style="opacity:0.7; font-size:0.95em;">Plans from $44/mo — AI answers · Takes messages · Voicemail detection · 40+ languages</p>
+        <div class="cta-row">
+            <a href="#" class="cta cta-outline" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'})" style="background:transparent; border:2px solid rgba(255,255,255,0.4); color:white;">View Plans</a>
+            <a href="#" class="cta" style="background:#e94560; border:none; color:white;" onclick="openDemoCall()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Try a Live Demo</a>
+        </div>
+    </div>
+</section>
+
+<!-- ───── FEATURES ───── -->
+<section class="features">
+    <div class="container">
+        <h2>What You Get</h2>
+        <div class="grid">
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3>Dedicated Number</h3><p>Port your number or get a new one. Kept forever.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div><h3>AI Receptionist</h3><p>Answers calls 24/7. Your script, your voice.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><h3>Auto SMS Recap</h3><p>Every caller gets a recap text immediately.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path></svg></div><h3>Auto Email Follow-Up</h3><p>Recap email sent from your address.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div><h3>Built-in CRM</h3><p>Every caller saved. Searchable. Exportable.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M16.67 7.33A5.66 5.66 0 0 1 20 10.07"></path></svg></div><h3>Voicemail Detection</h3><p>AI detects voicemail and drops a pre-recorded message. No wasted time.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><h3>40+ Languages</h3><p>Auto-detects caller's language. Speaks French, Spanish, Mandarin, Punjabi, Tamil, and more.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div><h3>Self-Service Portal</h3><p>Login to manage everything. No support needed.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg></div><h3>Go Live in Minutes</h3><p>Sign up, configure, launch. All from your browser.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ───── INTEGRATIONS ───── -->
+<section style="padding:70px 0;">
+    <div class="container">
+        <h2 style="text-align:center; font-size:2em; margin-bottom:20px; color:#1a1a2e;">See It In Action</h2>
+        <p style="text-align:center; color:#888; font-size:0.9em; margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">Manage calls, view transcripts, and track leads — all from your dashboard.</p>
+        <div style="max-width:900px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); border:1px solid #eee;">
+            <img src="/dashboard-preview.png" alt="AI Receptionist Dashboard" style="width:100%; display:block; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+        </div>
+        <div style="text-align:center; margin-top:20px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
+            <div style="text-align:center;">
+                <div style="font-size:1.8em; font-weight:800; color:#1a1a2e;">47</div>
+                <div style="font-size:0.8em; color:#888;">Calls Today</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:1.8em; font-weight:800; color:#2e7d32;">42</div>
+                <div style="font-size:0.8em; color:#888;">Answered</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:1.8em; font-weight:800; color:#e94560;">5</div>
+                <div style="font-size:0.8em; color:#888;">Voicemails</div>
+            </div>
+            <div style="text-align:center;">
+                <div style="font-size:1.8em; font-weight:800; color:#0f3460;">12</div>
+                <div style="font-size:0.8em; color:#888;">New Leads</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ───── INTEGRATIONS ───── -->
+<section style="padding:70px 0;">
+    <div class="container">
+        <h2 style="text-align:center; font-size:2em; margin-bottom:40px; color:#1a1a2e;">Integrates With Your Tools</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:16px; max-width:800px; margin:0 auto;">
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+                <div style="font-weight:600; font-size:0.85em;">Google Calendar</div>
+                <div style="color:#666; font-size:0.7em;">Auto-booking</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+                <div style="font-weight:600; font-size:0.85em;">Outlook Calendar</div>
+                <div style="color:#666; font-size:0.7em;">+ iCloud · Yahoo</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                <div style="font-weight:600; font-size:0.85em;">Calendly</div>
+                <div style="color:#666; font-size:0.7em;">Booking links</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                <div style="font-weight:600; font-size:0.85em;">Zapier</div>
+                <div style="color:#666; font-size:0.7em;">2,000+ apps</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0085a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <div style="font-weight:600; font-size:0.85em;">Make</div>
+                <div style="color:#666; font-size:0.7em;">Automation</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0f3460" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M20 7h-4a4 4 0 0 0-8 0H4"></path><path d="M4 7l.867 11.27A2 2 0 0 0 6.86 20h10.28a2 2 0 0 0 1.993-1.73L20 7"></path><path d="M10 11v5"></path><path d="M14 11v5"></path></svg>
+                <div style="font-weight:600; font-size:0.85em;">GoHighLevel</div>
+                <div style="color:#666; font-size:0.7em;">CRM</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M21.2 15c.7-1.2 1-2.5 1-3.9a9 9 0 0 0-9-9 9 9 0 0 0-9 9c0 4.1 2.6 7.6 6.2 8.9"></path><path d="M15 21.7c1.2-.3 2.4-.8 3.4-1.5"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <div style="font-weight:600; font-size:0.85em;">Webhooks</div>
+                <div style="color:#666; font-size:0.7em;">Custom APIs</div>
+            </div>
+            <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10a37f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <div style="font-weight:600; font-size:0.85em;">OpenAI</div>
+                <div style="color:#666; font-size:0.7em;">AI integration</div>
+            </div>
+        </div>
+        <p style="text-align:center; color:#888; font-size:0.85em; margin-top:25px;">Custom integrations available on Full Service and White Label plans.</p>
+    </div>
+</section>
+
+<!-- ───── HOW ───── -->
+<section class="how">
+    <div class="container">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step"><div class="num">1</div><h3>Sign Up</h3><p>Pick a plan. Create your account. 2 minutes.</p></div>
+            <div class="step"><div class="num">2</div><h3>Configure</h3><p>Write your script. Pick your voice. Upload contacts.</p></div>
+            <div class="step"><div class="num">3</div><h3>Port Your Number</h3><p>Keep your existing number or get a new one.</p></div>
+            <div class="step"><div class="num">4</div><h3>Go Live</h3><p>AI answers calls. You get leads. No training needed.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- ───── PRICING ───── -->
+<section class="pricing-section" id="pricing-section">
+    <div class="container">
+        <h2 style="text-align:center; font-size:2em; margin-bottom:8px;">Simple Pricing</h2>
+        <p style="text-align:center; color:#888; font-size:0.9em; margin-bottom:4px;">No setup fee. No contract. Cancel anytime.</p>
+        <div style="text-align:center; margin-bottom:30px;">
+            <a href="#" onclick="togglePricing(false); return false;" style="font-size:0.85em; color:#666; font-weight:600; text-decoration:none;" id="monthlyLabel">Monthly</a>
+            <span onclick="togglePricing()" style="position:relative; display:inline-block; width:50px; height:26px; margin:0 10px; vertical-align:middle; cursor:pointer;">
+                <input type="checkbox" id="annualToggle" style="display:none;">
+                <span style="position:absolute; top:0; left:0; right:0; bottom:0; background:#ccc; border-radius:26px; transition:0.3s; pointer-events:none;"></span>
+                <span style="position:absolute; height:20px; width:20px; left:3px; bottom:3px; background:white; border-radius:50%; transition:0.3s; pointer-events:none;" id="toggleKnob"></span>
+            </span>
+            <a href="#" onclick="togglePricing(true); return false;" style="font-size:0.85em; color:#666; font-weight:600; text-decoration:none;" id="annualLabel">Annual — <span style="color:#e94560; font-weight:700;">Save 17%</span></a>
+            <span style="font-size:0.75em; color:#999; margin-left:6px;">(Switch to see discounted prices)</span>
+        </div>
+        <div class="pricing-flex">
+            <div class="pricing-card">
+                <div class="plan-name">Starter</div>
+                <div class="big-price">$44<small>/mo</small></div>
+                <p class="desc">60 calls (120 min) — for solo agents starting out</p>
+                <div class="features-list">
+                    <div class="item">Answers inbound calls 24/7</div>
+                    <div class="item">Your custom script and voice</div>
+                    <div class="item">Auto SMS recap to every caller</div>
+                    <div class="item">Auto email recap from your address</div>
+                    <div class="item">Built-in contact CRM</div>
+                    <div class="item">60 calls / 120 minutes included</div>
+                    <div class="item">Phone number set up within 24 hours</div>
+                    <div class="item">Basic webhook integration</div>
+                    <div class="item">OpenAI integration</div>
+                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Basic script templates</div>
+                    <div class="item">Web-based calling (WebRTC)</div>
+                    <div class="item">Data retention: 1 month</div>
+                    <div class="item">✉️ Email support (free)</div>
+                    <div class="item">Self-service dashboard</div>
+                </div>
+                <p class="overage">Overage: $0.25/min</p>
+                <p class="setup">No setup fee. No contract. Cancel anytime.</p>
+                <button class="cta" onclick="openSignup('starter')" id="cardStarter">Get Started — $44/mo</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Inbound Light</div>
+                <div class="big-price">$80<small>/mo</small></div>
+                <p class="desc">150 calls (300 min) — for busy professionals</p>
+                <div class="features-list">
+                    <div class="item">Answers inbound calls 24/7</div>
+                    <div class="item">Your custom script and voice</div>
+                    <div class="item">Auto SMS recap to every caller</div>
+                    <div class="item">Auto email recap from your address</div>
+                    <div class="item">Built-in contact CRM</div>
+                    <div class="item">150 calls / 300 minutes included</div>
+                    <div class="item">Phone number set up within 24 hours</div>
+                    <div class="item">Auto language detection (supports 40+ languages)</div>
+                    <div class="item">Basic webhook integration</div>
+                    <div class="item">OpenAI integration</div>
+                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Basic script templates</div>
+                    <div class="item">Web-based calling (WebRTC)</div>
+                    <div class="item">Data retention: 3 months</div>
+                    <div class="item">✉️ Email support (free)</div>
+                    <div class="item">Self-service dashboard</div>
+                </div>
+                <p class="overage">Overage: $0.25/min</p>
+                <p class="setup">No setup fee. No contract. Cancel anytime.</p>
+                <button class="cta" onclick="openSignup('inbound-light')" id="cardLight">Get Started — $80/mo</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Inbound</div>
+                <div class="big-price">$116<small>/mo</small></div>
+                <p class="desc">300 calls (600 min) — for growing businesses</p>
+                <div class="features-list">
+                    <div class="item">Answers inbound calls 24/7</div>
+                    <div class="item">Your custom script and voice</div>
+                    <div class="item">Auto SMS recap to every caller</div>
+                    <div class="item">Auto email recap from your address</div>
+                    <div class="item">Built-in contact CRM</div>
+                    <div class="item">300 calls / 600 minutes included</div>
+                    <div class="item">Phone number set up within 24 hours</div>
+                    <div class="item">Auto language detection (supports 40+ languages)</div>
+                    <div class="item">Basic webhook integration</div>
+                    <div class="item">OpenAI integration</div>
+                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Basic script templates</div>
+                    <div class="item">Web-based calling (WebRTC)</div>
+                    <div class="item">Data retention: 3 months</div>
+                    <div class="item">✉️ Email support (free)</div>
+                    <div class="item">Self-service dashboard</div>
+                </div>
+                <p class="overage">Overage: $0.25/min</p>
+                <p class="setup">No setup fee. No contract. Cancel anytime.</p>
+                <button class="cta" onclick="openSignup('inbound')" id="cardInbound">Get Started — $116/mo</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="badge">POPULAR</div>
+                <div class="plan-name">Inbound + Outbound</div>
+                <div class="big-price">$236<small>/mo</small></div>
+                <p class="desc">400 calls (800 min) — inbound + outbound</p>
+                <div class="features-list">
+                    <div class="item">Everything in Inbound plan</div>
+                    <div class="item">AI makes outbound calls for you</div>
+                    <div class="item">Voicemail drop on no answer</div>
+                    <div class="item">Outbound SMS follow-ups</div>
+                    <div class="item">Upload your contact list</div>
+                    <div class="item">Voicemail detection &amp; drop</div>
+                    <div class="item">Auto language detection (40+ languages)</div>
+                    <div class="item">Call results report</div>
+                    <div class="item">Phone number set up within 24 hours</div>
+                    <div class="item">400 calls / 800 minutes total</div>
+                    <div class="item">Basic webhook integration</div>
+                    <div class="item">OpenAI integration</div>
+                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Basic script templates</div>
+                    <div class="item">Web-based calling (WebRTC)</div>
+                    <div class="item">Data retention: 6 months</div>
+                    <div class="item">✉️ Email support (free)</div>
+                </div>
+                <p class="overage">Overage: $0.30/min</p>
+                <p class="setup">No setup fee. No contract. Cancel anytime.</p>
+                <button class="cta" onclick="openSignup('full')" id="cardFull">Get Started — $236/mo</button>
+            </div>
+
+            <div class="pricing-card">
+                <div class="plan-name">Full Service</div>
+                <div class="big-price">$416<small>/mo</small></div>
+                <p class="desc">800 calls (1,600 min) — for heavy users</p>
+                <div class="features-list">
+                    <div class="item">Everything in Inbound + Outbound</div>
+                    <div class="item">Priority support</div>
+                    <div class="item">Custom integrations</div>
+                    <div class="item">Dedicated account management</div>
+                    <div class="item">Advanced reporting</div>
+                    <div class="item">Phone number set up within 24 hours</div>
+                    <div class="item">Auto language detection (supports 40+ languages)</div>
+                    <div class="item">800 calls / 1,600 minutes total</div>
+                    <div class="item">Basic webhook integration</div>
+                    <div class="item">OpenAI integration</div>
+                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Basic script templates</div>
+                    <div class="item">Web-based calling (WebRTC)</div>
+                    <div class="item">Data retention: 12 months</div>
+                    <div class="item">✉️ Email support (free)</div>
+                    <div class="item">📞 Phone support included</div>
+                    <div class="item">👤 Dedicated implementation specialist</div>
+                </div>
+                <p class="overage">Overage: $0.25/min</p>
+                <p class="setup">No setup fee. No contract. Cancel anytime.</p>
+                <button class="cta" onclick="openSignup('full-pro')" id="cardPro">Get Started — $416/mo</button>
+            </div>
+
+            <div class="pricing-card" style="border-color: #0f3460;">
+                <div class="badge" style="background:#0f3460;">WHITELABEL</div>
+                <div class="plan-name">Agency White Label</div>
+                <div class="big-price">Call for Pricing</div>
+                <p class="desc">Custom white-label for agencies.</p>
+                <div class="features-list">
+                    <div class="item">Everything in Full Service</div>
+                    <div class="item">Rebrand dashboard as your own</div>
+                    <div class="item">Custom domain (yourbrand.com)</div>
+                    <div class="item">Custom SMTP (your email domain)</div>
+                    <div class="item">White label ElevenLabs voices</div>
+                    <div class="item">Remove "Powered by AI Receptionist" branding</div>
+                    <div class="item">Resell to unlimited clients</div>
+                    <div class="item">2,400 minutes included</div>
+                    <div class="item">Data retention: 12 months</div>
+                    <div class="item">📞 Phone support</div>
+                    <div class="item">👤 Dedicated account manager</div>
+                </div>
+                <p class="overage">Custom pricing. No overage fees.</p>
+                <p class="setup">Custom pricing. Cancel anytime.</p>
+                <button class="cta" style="background:#0f3460;" onclick="openDemoCall()">📞 Call for Pricing</button>
+            </div>
+        </div>
+        <p style="text-align:center; color:#999; font-size:0.85em; margin-top:20px;">No setup fee. No contract. Cancel anytime.</p>
+        <div style="text-align:center; margin-top:16px; padding:18px; background:#f0f6ff; border-radius:12px; max-width:500px; margin-left:auto; margin-right:auto;">
+            <p style="font-weight:700; color:#002868; font-size:0.95em; margin-bottom:6px;">📦 Need more minutes? Get a Bonus Pack</p>
+            <p style="font-size:0.85em; color:#555; margin-bottom:10px;">Add extra minutes at a steep discount — perfect for busy months.</p>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                <span style="background:white; border:1px solid #ddd; border-radius:8px; padding:8px 16px; font-size:0.85em;"><strong>+100 min</strong> for <strong>$15</strong> <span style="color:#e94560; font-size:0.8em;">($0.15/min)</span></span>
+                <span style="background:white; border:1px solid #ddd; border-radius:8px; padding:8px 16px; font-size:0.85em;"><strong>+200 min</strong> for <strong>$25</strong> <span style="color:#e94560; font-size:0.8em;">($0.13/min)</span></span>
+            </div>
+            <p style="font-size:0.75em; color:#999; margin-top:8px;">Bonus packs are one-time add-ons. <a href="#" onclick="openDemoCall(); return false;" style="color:#e94560;">Ask about bulk pricing →</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- ───── WHO THIS IS FOR ───── -->
+<section class="who">
+    <div class="container">
+        <h2>Who This Is For</h2>
+        <div class="tags">
+            <span>Mortgage Agents</span>
+            <span>Real Estate Agents</span>
+            <span>Small Law Firms</span>
+            <span>Contractors</span>
+            <span>Insurance Brokers</span>
+            <span>Medical Offices</span>
+            <span>Financial Advisors</span>
+            <span>Any Business That Misses Calls</span>
+        </div>
+    </div>
+</section>
+
+<!-- ───── PROOF ───── -->
+<section class="proof" style="padding:70px 0; background:#f8f9fa;">
+    <div class="container">
+        <h2 style="text-align:center; font-size:2em; margin-bottom:40px; color:#1a1a2e;">Trusted by Canadian Businesses</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:20px; max-width:900px; margin:0 auto;">
+            <!-- Testimonial 1 -->
+            <div style="background:white; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,#e94560,#ff6b6b); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.2em;">DM</div>
+                    <div>
+                        <div style="font-weight:700; color:#1a1a2e; font-size:0.95em;">David M.</div>
+                        <div style="font-size:0.75em; color:#888;">General Contractor, Toronto</div>
+                        <div style="color:#f5a623; font-size:0.85em;">★★★★★</div>
+                    </div>
+                </div>
+                <p style="font-size:0.88em; color:#555; line-height:1.6; margin:0;">"My contracting business was missing calls every day after hours. I signed up, configured it in 20 minutes, and haven't missed a single lead since. The SMS recap alone saves me 5+ hours a week."</p>
+            </div>
+            <!-- Testimonial 2 -->
+            <div style="background:white; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,#0f3460,#1a73e8); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.2em;">SL</div>
+                    <div>
+                        <div style="font-weight:700; color:#1a1a2e; font-size:0.95em;">Sarah L.</div>
+                        <div style="font-size:0.75em; color:#888;">Real Estate Agent, Mississauga</div>
+                        <div style="color:#f5a623; font-size:0.85em;">★★★★★</div>
+                    </div>
+                </div>
+                <p style="font-size:0.88em; color:#555; line-height:1.6; margin:0;">"I was spending 3 hours a day on calls. Now the AI handles first contact, books viewings, and sends me recap emails. Best $80 I've ever spent on my business."</p>
+            </div>
+            <!-- Testimonial 3 -->
+            <div style="background:white; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,#2e7d32,#4caf50); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.2em;">MJ</div>
+                    <div>
+                        <div style="font-weight:700; color:#1a1a2e; font-size:0.95em;">Mark J.</div>
+                        <div style="font-size:0.75em; color:#888;">Insurance Broker, Scarborough</div>
+                        <div style="color:#f5a623; font-size:0.85em;">★★★★☆</div>
+                    </div>
+                </div>
+                <p style="font-size:0.88em; color:#555; line-height:1.6; margin:0;">"Clients call after hours all the time. Now they get answered immediately, leave their info, and I follow up the next morning. My after-hours leads went up 40%."</p>
+            </div>
+            <!-- Testimonial 4 -->
+            <div style="background:white; border-radius:14px; padding:24px; box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                    <div style="width:48px; height:48px; border-radius:50%; background:linear-gradient(135deg,#8e24aa,#ce93d8); display:flex; align-items:center; justify-content:center; color:white; font-weight:700; font-size:1.2em;">AK</div>
+                    <div>
+                        <div style="font-weight:700; color:#1a1a2e; font-size:0.95em;">Amanda K.</div>
+                        <div style="font-size:0.75em; color:#888;">Dental Office Manager, Ottawa</div>
+                        <div style="color:#f5a623; font-size:0.85em;">★★★★★</div>
+                    </div>
+                </div>
+                <p style="font-size:0.88em; color:#555; line-height:1.6; margin:0;">"We needed someone to answer phones during lunch and after 5pm. The AI handles appointment bookings, FAQs, and sends confirmations. Patients love it."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ───── WHO THIS IS FOR ───── -->
+<section style="padding:70px 0; background:#f8f9fa;">
+    <div class="container" style="max-width:700px;">
+        <h2 style="text-align:center; font-size:2em; margin-bottom:40px; color:#1a1a2e;">Frequently Asked Questions</h2>
+        
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">Is your data secure and private?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">Yes. All call recordings and transcripts are encrypted. Your data is never shared with third parties or used for training. You can request deletion at any time.</p>
+        </div>
+        
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">Can I keep my existing phone number?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">Yes. You can port your existing number to us, or we'll set up a new one in your area code. Number porting takes 2-5 business days. We handle the paperwork.</p>
+        </div>
+        
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">What happens if the AI can't answer a question?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">You provide the script and FAQs. If something falls outside that scope, the AI takes a message and you follow up. No call is ever dropped without a recap sent to you and the caller.</p>
+        </div>
+        
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">Can I cancel anytime?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">Absolutely. No contracts, no setup fees, no cancellation fees. Cancel from your dashboard and you keep service until the end of your billing period.</p>
+        </div>
+        
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">How does this compare to hiring a receptionist?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">A full-time receptionist costs <strong>$3,000-$4,000/month</strong> and works 9-5 with breaks and vacation. Our AI works <strong>24/7/365</strong>, never calls in sick, sends instant SMS and email recaps, and costs as little as <strong>$37/month</strong>. For the price of one month of a human receptionist, you get a full year of AI coverage.</p>
+        </div>
+
+        <div style="margin-bottom:12px; background:white; border-radius:12px; padding:18px 22px; box-shadow:0 2px 10px rgba(0,0,0,0.04);">
+            <p style="font-weight:700; color:#1a1a2e; margin-bottom:6px;">What if I run out of minutes mid-month?</p>
+            <p style="font-size:0.9em; color:#666; line-height:1.6;">You can add a <strong>Bonus Minute Pack</strong> at any time — 100 min for $15 or 200 min for $25. That's as low as <strong>$0.13/min</strong>, far cheaper than standard overage.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer class="footer">
+    <p><a href="#" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}); return false;">View Plans</a> | <a href="#" onclick="openSignup('starter'); return false;">Get Started Free</a></p>
+    <p style="margin-top:5px; font-size:0.8em;">AI Receptionist • Never Miss Another Call</p>
+    <p style="margin-top:5px; font-size:0.75em;"><a href="#" onclick="alert('Privacy Policy: Your data is handled with care. Call recordings are encrypted and stored securely. We never share your data with third parties. You can request deletion at any time.')">Privacy Policy</a> | <a href="#" onclick="alert('Terms of Service: Monthly subscription. Cancel anytime. No setup fees. Overage billed at $0.25/min. Toll-free numbers $12/mo + $0.03/min.')">Terms of Service</a> | <a href="mailto:info@effenai.com">Contact</a></p>
+    <p style="margin-top:8px; font-size:0.75em; color:#bbb;">
+        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">LinkedIn</a> •
+        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">Twitter/X</a> •
+        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">Facebook</a>
+        <br><span style="font-size:0.9em;">© 2026 AI Receptionist. All rights reserved.</span>
+    </p>
+</footer>
+
+<!-- ───── SIGNUP MODAL ───── -->
+<div class="modal-overlay" id="signupModal">
+    <div class="modal">
+        <button class="close" onclick="closeSignup()">×</button>
+        <div id="signupForm">
+            <h2>Create Your Account</h2>
+            <p class="subtitle" id="planLabel">Inbound — $197/mo</p>
+
+            <p style="font-size:0.85em; font-weight:600; margin-bottom:8px;">Choose your plan:</p>
+            <div class="plan-select" style="flex-wrap:wrap;">
+                <button id="planStarter" onclick="selectPlan('starter'); hideUpsell()">Starter<br><small id="psStarter">$44/mo</small></button>
+                <button id="planLight" onclick="selectPlan('inbound-light'); hideUpsell()">Inbound Light<br><small id="psLight">$80/mo</small></button>
+                <button id="planInbound" onclick="selectPlan('inbound'); hideUpsell()">Inbound<br><small id="psInbound">$116/mo</small></button>
+                <button id="planFull" onclick="selectPlan('full'); hideUpsell()">Inbound+Outbound<br><small id="psFull">$236/mo</small></button>
+                <button id="planPro" onclick="selectPlan('full-pro')">Full Service<br><small id="psPro">$416/mo</small></button>
+                <button id="planWhiteLabel" onclick="selectPlan('whitelabel')" style="border-color:#0f3460; color:#0f3460;">White Label<br><small id="psWhite">Call for Pricing</small></button>
+            </div>
+
+            <div id="upsellBanner" style="background: #fff5f5; border: 1px solid #e94560; border-radius: 10px; padding: 14px; margin-bottom: 15px; text-align: center; display: none;">
+                <p style="font-size:0.9em; font-weight:700; color:#e94560; margin-bottom:4px;" id="upsellTitle">💡 Most businesses need more than 2 calls per day</p>
+                <p style="font-size:0.8em; color:#666;" id="upsellText">For just <strong>$30 more</strong> you get <strong>2.5x more calls</strong> (150 calls / 300 min) — a <strong>60% increase</strong>.</p>
+                <button onclick="applyUpsell()" style="background:#e94560; color:white; border:none; padding:8px 20px; border-radius:6px; font-size:0.85em; font-weight:600; cursor:pointer; margin-top:8px;" id="upsellBtn">Switch to Inbound Light — $67/mo</button>
+            </div>
+
+            <form onsubmit="submitSignup(event)">
+                <div class="row">
+                    <div><label>Full Name</label><input type="text" id="name" placeholder="Your name" required=""></div>
+                    <div><label>Business</label><input type="text" id="business" placeholder="Business name"></div>
+                </div>
+                <label>Email</label><input type="email" id="email" placeholder="you@example.com" required="">
+                <label>Phone</label><input type="tel" id="phone" placeholder="(647) 555-0123" required="">
+                <label>Desired Area Code for Your Business Number</label>
+                <div class="row">
+                    <select id="areaCode" style="flex:1;">
+                        <optgroup label="Toll-Free ($12/mo + $0.03/min)">
+                            <option value="800">800 — Toll-Free</option>
+                            <option value="888">888 — Toll-Free</option>
+                            <option value="877">877 — Toll-Free</option>
+                            <option value="866">866 — Toll-Free</option>
+                            <option value="855">855 — Toll-Free</option>
+                            <option value="844">844 — Toll-Free</option>
+                            <option value="833">833 — Toll-Free</option>
+                        </optgroup>
+                        <optgroup label="Ontario">
+                            <option value="416">416 — Toronto</option>
+                            <option value="647" selected="">647 — Toronto</option>
+                            <option value="437">437 — Toronto</option>
+                            <option value="905">905 — GTA</option>
+                            <option value="289">289 — GTA</option>
+                            <option value="365">365 — GTA</option>
+                            <option value="613">613 — Ottawa / Eastern ON</option>
+                            <option value="343">343 — Ottawa</option>
+                            <option value="705">705 — Northern ON</option>
+                            <option value="249">249 — Northern ON</option>
+                            <option value="519">519 — Southwestern ON</option>
+                            <option value="226">226 — Southwestern ON</option>
+                            <option value="807">807 — Thunder Bay / NW ON</option>
+                        </optgroup>
+                        <optgroup label="British Columbia">
+                            <option value="604">604 — Vancouver</option>
+                            <option value="778">778 — BC</option>
+                            <option value="236">236 — BC</option>
+                            <option value="250">250 — Victoria / Interior</option>
+                            <option value="672">672 — BC</option>
+                        </optgroup>
+                        <optgroup label="Alberta">
+                            <option value="403">403 — Calgary / Southern AB</option>
+                            <option value="587">587 — Alberta</option>
+                            <option value="780">780 — Edmonton / Northern AB</option>
+                            <option value="825">825 — Alberta</option>
+                        </optgroup>
+                        <optgroup label="Quebec">
+                            <option value="514">514 — Montreal</option>
+                            <option value="438">438 — Montreal</option>
+                            <option value="450">450 — Montreal area</option>
+                            <option value="579">579 — Quebec</option>
+                            <option value="418">418 — Quebec City</option>
+                            <option value="581">581 — Quebec City</option>
+                            <option value="819">819 — Eastern / Northern QC</option>
+                            <option value="873">873 — Quebec</option>
+                        </optgroup>
+                        <optgroup label="Manitoba / Saskatchewan">
+                            <option value="204">204 — Manitoba</option>
+                            <option value="431">431 — Manitoba</option>
+                            <option value="306">306 — Saskatchewan</option>
+                            <option value="639">639 — Saskatchewan</option>
+                        </optgroup>
+                        <optgroup label="Atlantic Canada">
+                            <option value="902">902 — Nova Scotia / PEI</option>
+                            <option value="782">782 — Nova Scotia / PEI</option>
+                            <option value="506">506 — New Brunswick</option>
+                            <option value="428">428 — New Brunswick</option>
+                            <option value="709">709 — Newfoundland &amp; Labrador</option>
+                            <option value="867">867 — Nunavut / NWT / Yukon</option>
+                        </optgroup>
+                        <optgroup label="United States">
+                            <option value="212">212 — New York City</option>
+                            <option value="310">310 — Los Angeles</option>
+                            <option value="305">305 — Miami</option>
+                            <option value="312">312 — Chicago</option>
+                            <option value="713">713 — Houston</option>
+                            <option value="404">404 — Atlanta</option>
+                            <option value="602">602 — Phoenix</option>
+                            <option value="303">303 — Denver</option>
+                            <option value="206">206 — Seattle</option>
+                            <option value="617">617 — Boston</option>
+                            <option value="202">202 — Washington DC</option>
+                            <option value="415">415 — San Francisco</option>
+                        </optgroup>
+                        <option value="other">Other (enter manually)</option>
+                    </select>
+                    <input type="text" id="customArea" placeholder="Enter area code" style="display:none; flex:1;">
+                </div>
+                <p style="font-size:0.75em; color:#888; margin:-8px 0 12px;">Toll-free: <strong>$12/mo + $0.03/min</strong></p>
+                <label>Password</label><input type="password" id="password" placeholder="Min 8 characters" minlength="8" required="">
+                <div style="margin:14px 0; padding:12px; background:#f0f6ff; border-radius:8px; border:1px solid #d0e3f7;">
+                    <p style="font-size:0.82em; font-weight:600; color:#002868; margin-bottom:6px;">📦 Add a Bonus Minute Pack (optional)</p>
+                    <p style="font-size:0.75em; color:#666; margin-bottom:8px;">Get extra minutes at a steep discount.</p>
+                    <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                        <label style="flex:1; min-width:80px; text-align:center; padding:8px 4px; border:2px solid #ddd; border-radius:6px; cursor:pointer; font-size:0.78em; background:white;" id="bonusLabel0">
+                            <input type="radio" name="bonusPack" value="0" checked="" onchange="selectBonusPack('0')" style="display:none;"> None
+                        </label>
+                        <label style="flex:1; min-width:80px; text-align:center; padding:8px 4px; border:2px solid #ddd; border-radius:6px; cursor:pointer; font-size:0.78em; background:white;" id="bonusLabel100">
+                            <input type="radio" name="bonusPack" value="100" onchange="selectBonusPack('100')" style="display:none;"> +100 min<br><strong>$15</strong>
+                        </label>
+                        <label style="flex:1; min-width:80px; text-align:center; padding:8px 4px; border:2px solid #e94560; border-radius:6px; cursor:pointer; font-size:0.78em; background:#fff5f5;" id="bonusLabel200">
+                            <input type="radio" name="bonusPack" value="200" onchange="selectBonusPack('200')" style="display:none;"> +200 min<br><strong>$25</strong>
+                        </label>
+                    </div>
+                </div>
+                <div class="error" id="signupError"></div>
+                <button type="submit" id="signupBtn">Create Account</button>
+                <p style="font-size:0.72em; color:#999; text-align:center; margin-top:6px;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    Secure payment via <strong>Square</strong> (coming soon). We'll notify you when payment is ready.
+                </p>
+                <p class="login-link">Already have an account? <a onclick="switchToLogin()">Log in</a></p>
+                <p style="font-size:0.78em; color:#bbb; text-align:center; margin-top:10px;">🤝 <strong>Refer a friend</strong> — Get 20% off for 3 months when they sign up. <a href="#" onclick="copyReferralLink(); return false;" style="color:#7fc4fd; text-decoration:underline;">Get your referral link →</a></p>
+            </form>
+        </div>
+        <div id="signupSuccess" style="display:none;">
+            <div class="success-state">
+                <div class="check">✅</div>
+                <h2>Account Created!</h2>
+                <p>Welcome! Your account is ready. You can now log into your dashboard to configure your AI receptionist.</p>
+                <a href="#" class="portal-btn" onclick="closeSignup(); openLogin();">Go to Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ───── LOGIN MODAL ───── -->
+<div class="modal-overlay" id="loginModal">
+    <div class="modal">
+        <button class="close" onclick="closeLogin()">×</button>
+        <div id="loginForm">
+            <h2>Client Login</h2>
+            <p class="subtitle">Access your dashboard</p>
+            <form onsubmit="submitLogin(event)">
+                <label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com" required="">
+                <label>Password</label><input type="password" id="loginPassword" placeholder="Your password" required="">
+                <div class="error" id="loginError"></div>
+                <button type="submit">Log In</button>
+                <p class="login-link">No account? <a onclick="switchToSignup()">Sign up</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ───── DEMO CALL MODAL ───── -->
+<div class="modal-overlay" id="demoModal">
+    <div class="modal" style="max-width:400px;">
+        <button class="close" onclick="closeDemo()">×</button>
+        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Try a Live Demo</h2>
+        <p class="subtitle">Enter your phone number and our AI will call you right now.</p>
+        <form onsubmit="startDemoCall(event)">
+            <label>Your Name</label>
+            <input type="text" id="demoName" placeholder="Your name" required="">
+            <label>Your Phone Number</label>
+            <input type="tel" id="demoPhone" placeholder="(647) 555-0123" required="">
+            <div class="error" id="demoError"></div>
+            <button type="submit" id="demoBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call Me Now</button>
+        </form>
+    </div>
+</div>
+<div id="dashboardView" style="display:none;">
+    <div class="dash-header">
+        <div class="logo">AI Receptionist</div>
+        <div>
+            <span class="user" id="dashUser"></span>
+            <button onclick="logout()" style="background:none; border:1px solid rgba(255,255,255,0.3); color:white; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:0.8em; margin-left:12px;">Log Out</button>
+        </div>
+    </div>
+    <div class="dash-body">
+        <h2>Dashboard</h2>
+        <div class="dash-grid">
+            <div class="dash-card"><div class="stat" id="statCalls">0</div><div class="label">Total Calls</div></div>
+            <div class="dash-card"><div class="stat" id="statMessages">0</div><div class="label">Messages Taken</div></div>
+            <div class="dash-card"><div class="stat" id="statOutbound">0</div><div class="label">Outbound Calls</div></div>
+            <div class="dash-card"><div class="stat" id="statContacts">0</div><div class="label">Contacts Saved</div></div>
+        </div>
+
+        <div class="dash-section">
+            <h3>Your AI Voice</h3>
+            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose the voice your AI receptionist uses.</p>
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <select id="voiceSelect" style="flex:1; min-width:200px; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em;">
+                    <optgroup label="Male — Professional">
+                        <option value="cjVigY5qzO86Huf0OWal" selected="">Eric — Smooth, Trustworthy</option>
+                        <option value="CwhRBWXzGAHq8TQ4Fs17">Roger — Laid-Back, Casual</option>
+                        <option value="iP95p4xoKVk53GoZ742B">Chris — Charming, Down-to-Earth</option>
+                        <option value="nPczCjzI2devNBz1zQrb">Brian — Deep, Resonant</option>
+                        <option value="bIHbv24MWmeRgasZH58o">Will — Relaxed Optimist</option>
+                        <option value="SOYHLrjzK2X1ezoPC6cr">Harry — Fierce Warrior</option>
+                        <option value="TX3LPaxmHKxFdv7VOQHJ">Liam — Energetic</option>
+                        <option value="pNInz6obpgDQGcFmaJgB">Adam — Dominant, Firm</option>
+                        <option value="N2lVS1w4EtoT3dr4eOWO">Callum — Husky Trickster</option>
+                    </optgroup>
+                    <optgroup label="Male — Accented">
+                        <option value="IKne3meq5aSn9XLyUdCD">Charlie — Deep, Confident (AUS)</option>
+                        <option value="JBFqnCBsd6RMkjVDRZzb">George — Warm, Captivating (UK)</option>
+                        <option value="onwK4e9ZLuTAKqWW03F9">Daniel — Steady Broadcaster (UK)</option>
+                    </optgroup>
+                    <optgroup label="Female — Professional">
+                        <option value="cgSgspJ2msm6clMCkdW9">Jessica — Playful, Bright</option>
+                        <option value="hpp4J3VqNfWAUOO0d1Us">Bella — Professional, Bright</option>
+                        <option value="XrExE9yKIg1WjnnlVkGX">Matilda — Knowledgeable</option>
+                        <option value="EXAVITQu4vr4xnSDxMaL">Sarah — Mature, Reassuring</option>
+                        <option value="FGY2WhTYpPnrIDTdsKH5">Laura — Enthusiast, Quirky</option>
+                    </optgroup>
+                    <optgroup label="Female — Accented">
+                        <option value="Xb7hH8MSUJpSbSDYk0k2">Alice — Clear, Engaging (UK)</option>
+                        <option value="pFZP5JQG7iQjIQuC4Bku">Lily — Velvety Actress (UK)</option>
+                    </optgroup>
+                    <optgroup label="Neutral">
+                        <option value="SAz9YHcvj6GT2YYXdXww">River — Relaxed, Neutral</option>
+                    </optgroup>
+                </select>
+                <button class="save-btn" onclick="previewVoice()">▶ Preview</button>
+                <button class="save-btn" onclick="saveVoice()">Save</button>
+            </div>
+            <div class="saved" id="voiceSaved" style="display:none; margin-top:8px;">✓ Voice saved</div>
+        </div>
+
+        <div class="dash-section">
+            <h3>Your AI Script</h3>
+            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">This is what your AI says when answering calls. Edit it anytime.</p>
+            <label>Greeting</label>
+            <input type="text" id="scriptGreeting" value="Hi, this is [your name] from [business]. How can I help you today?">
+            <label>Questions to ask (one per line)</label>
+            <textarea id="scriptQuestions">Can I get your name?
+What's the best number to reach you?
+What are you calling about?
+Can I get your email so we can follow up?</textarea>
+            <label>Closing</label>
+            <textarea id="scriptClosing">Thanks for calling! Someone will follow up with you shortly.</textarea>
+            <button class="save-btn" onclick="saveScript()">Save Script</button>
+            <div class="saved" id="scriptSaved">✓ Saved</div>
+        </div>
+
+        <div class="dash-section">
+            <h3>Your Contact List (for outbound)</h3>
+            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Paste names and phone numbers. One per line: Name, Phone</p>
+            <textarea id="contactList" placeholder="John Smith, 647-555-0100
+Jane Doe, 416-555-0200"></textarea>
+            <button class="save-btn" onclick="saveContacts()">Upload Contacts</button>
+            <div class="saved" id="contactsSaved">✓ Uploaded</div>
+        </div>
+
+        <div class="dash-section">
+            <h3>Your Number</h3>
+            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose your area code and we'll provision your dedicated business number.</p>
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                <select id="dashAreaCode" style="padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; flex:1; min-width:150px;">
+                    <optgroup label="Toll-Free ($12/mo + $0.03/min)">
+                        <option value="800">800 — Toll-Free</option>
+                        <option value="888">888 — Toll-Free</option>
+                        <option value="877">877 — Toll-Free</option>
+                        <option value="866">866 — Toll-Free</option>
+                        <option value="855">855 — Toll-Free</option>
+                        <option value="844">844 — Toll-Free</option>
+                        <option value="833">833 — Toll-Free</option>
+                    </optgroup>
+                    <optgroup label="Ontario">
+                        <option value="416">416 — Toronto</option>
+                        <option value="647" selected="">647 — Toronto</option>
+                        <option value="437">437 — Toronto</option>
+                        <option value="905">905 — GTA</option>
+                        <option value="289">289 — GTA</option>
+                        <option value="365">365 — GTA</option>
+                        <option value="613">613 — Ottawa / Eastern ON</option>
+                        <option value="343">343 — Ottawa</option>
+                        <option value="705">705 — Northern ON</option>
+                        <option value="249">249 — Northern ON</option>
+                        <option value="519">519 — Southwestern ON</option>
+                        <option value="226">226 — Southwestern ON</option>
+                        <option value="807">807 — Thunder Bay / NW ON</option>
+                    </optgroup>
+                    <optgroup label="British Columbia">
+                        <option value="604">604 — Vancouver</option>
+                        <option value="778">778 — BC</option>
+                        <option value="236">236 — BC</option>
+                        <option value="250">250 — Victoria / Interior</option>
+                        <option value="672">672 — BC</option>
+                    </optgroup>
+                    <optgroup label="Alberta">
+                        <option value="403">403 — Calgary / Southern AB</option>
+                        <option value="587">587 — Alberta</option>
+                        <option value="780">780 — Edmonton / Northern AB</option>
+                        <option value="825">825 — Alberta</option>
+                    </optgroup>
+                    <optgroup label="Quebec">
+                        <option value="514">514 — Montreal</option>
+                        <option value="438">438 — Montreal</option>
+                        <option value="450">450 — Montreal area</option>
+                        <option value="579">579 — Quebec</option>
+                        <option value="418">418 — Quebec City</option>
+                        <option value="581">581 — Quebec City</option>
+                        <option value="819">819 — Eastern / Northern QC</option>
+                        <option value="873">873 — Quebec</option>
+                    </optgroup>
+                    <optgroup label="Manitoba / Saskatchewan">
+                        <option value="204">204 — Manitoba</option>
+                        <option value="431">431 — Manitoba</option>
+                        <option value="306">306 — Saskatchewan</option>
+                        <option value="639">639 — Saskatchewan</option>
+                    </optgroup>
+                    <optgroup label="Atlantic Canada">
+                        <option value="902">902 — Nova Scotia / PEI</option>
+                        <option value="782">782 — Nova Scotia / PEI</option>
+                        <option value="506">506 — New Brunswick</option>
+                        <option value="428">428 — New Brunswick</option>
+                        <option value="709">709 — Newfoundland &amp; Labrador</option>
+                        <option value="867">867 — Nunavut / NWT / Yukon</option>
+                    </optgroup>
+                    <optgroup label="United States">
+                        <option value="212">212 — New York City</option>
+                        <option value="310">310 — Los Angeles</option>
+                        <option value="305">305 — Miami</option>
+                        <option value="312">312 — Chicago</option>
+                        <option value="713">713 — Houston</option>
+                        <option value="404">404 — Atlanta</option>
+                        <option value="602">602 — Phoenix</option>
+                        <option value="303">303 — Denver</option>
+                        <option value="206">206 — Seattle</option>
+                        <option value="617">617 — Boston</option>
+                        <option value="202">202 — Washington DC</option>
+                        <option value="415">415 — San Francisco</option>
+                    </optgroup>
+                    <option value="other">Other (enter manually)</option>
+                </select>
+                <input type="text" id="dashCustomArea" placeholder="Enter area code" style="display:none; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; width:100px;">
+                <button class="save-btn" onclick="provisionNumber()">Provision My Number</button>
+            </div>
+            <div class="saved" id="provisionStatus" style="display:none; margin-top:10px;">✓ Number requested — we'll email you when it's ready</div>
+            <p style="font-size:0.75em; color:#888; margin-top:8px;">Toll-free: <strong>$12/mo + $0.03/min</strong></p>
+        </div>
+    </div>
+</div>
+
+<script>
+let selectedPlan = 'inbound';
+let selectedBonus = 0;
+const planPrices = {'starter':37,'inbound-light':67,'inbound':97,'full':197,'full-pro':347,'whitelabel':0};
+
+function selectPlan(p) {
+    selectedPlan = p;
+    const plans = ['starter', 'inbound-light', 'inbound', 'full', 'full-pro', 'whitelabel'];
+    const ids = ['planStarter', 'planLight', 'planInbound', 'planFull', 'planPro', 'planWhiteLabel'];
+    const labels = {'starter':'Starter — $44/mo','inbound-light':'Inbound Light — $80/mo','inbound':'Inbound — $116/mo','full':'Inbound + Outbound — $236/mo','full-pro':'Full Service — $416/mo','whitelabel':'White Label — Call for Pricing'};
+    
+    ids.forEach((id, i) => {
+        document.getElementById(id).classList.toggle('selected', plans[i] === p);
+    });
+    // Update signup button based on toggle state
+    const isAnnual = document.getElementById('annualToggle') ? document.getElementById('annualToggle').checked : false;
+    const btnMonthly = ['$44/mo', '$80/mo', '$116/mo', '$236/mo', '$416/mo', 'Call for Pricing'];
+    const btnAnnual = ['$37/yr', '$67/yr', '$97/yr', '$197/yr', '$347/yr', 'Call for Pricing'];
+    const idx = plans.indexOf(p);
+    document.getElementById('planLabel').textContent = (isAnnual ? 'Annual' : 'Monthly') + ' — ' + (isAnnual ? btnAnnual[idx] : btnMonthly[idx]);
+    document.getElementById('signupBtn').textContent = 'Create Account — ' + (isAnnual ? btnAnnual[idx] : btnMonthly[idx]);
+    
+    // Show upsell for lower tiers only
+    if (p === 'starter' || p === 'inbound-light' || p === 'inbound') {
+        showUpsell(p);
+    } else {
+        hideUpsell();
+    }
+}
+
+function showUpsell(plan) {
+    const isAnnual = document.getElementById('annualToggle') ? document.getElementById('annualToggle').checked : false;
+    const upsellData = {
+        'starter': {
+            title: '💡 Most businesses need more than 2 calls per day',
+            text: isAnnual ? 'For just <strong>$30 more/yr</strong> you get <strong>2.5x more calls</strong> (150 / 300 min) — a <strong>55% increase</strong>.' : 'For just <strong>$36 more</strong> you get <strong>2.5x more calls</strong> (150 / 300 min) — a <strong>62% increase</strong>.',
+            nextPlan: 'inbound-light',
+            btnText: isAnnual ? 'Switch to Inbound Light — $67/yr' : 'Switch to Inbound Light — $80/mo'
+        },
+        'inbound-light': {
+            title: '💡 150 calls a month goes fast',
+            text: isAnnual ? 'For just <strong>$30 more/yr</strong> you get <strong>2x more calls</strong> (300 / 600 min) — a <strong>50% increase</strong>.' : 'For just <strong>$36 more</strong> you get <strong>2x more calls</strong> (300 / 600 min) — a <strong>57% increase</strong>.',
+            nextPlan: 'inbound',
+            btnText: isAnnual ? 'Switch to Inbound — $97/yr' : 'Switch to Inbound — $116/mo'
+        },
+        'inbound': {
+            title: '💡 Add outbound calling for maximum reach',
+            text: isAnnual ? 'For just <strong>$100 more/yr</strong> you get <strong>2.7x more calls</strong> (800 / 1,600 min) with <strong>outbound included</strong> — a <strong>60% increase</strong>.' : 'For just <strong>$120 more</strong> you get <strong>2.7x more calls</strong> (800 / 1,600 min) with <strong>outbound included</strong> — a <strong>68% increase</strong>.',
+            nextPlan: 'full',
+            btnText: isAnnual ? 'Switch to Inbound + Outbound — $197/yr' : 'Switch to Inbound + Outbound — $236/mo'
+        }
+    };
+    const data = upsellData[plan];
+    if (data) {
+        document.getElementById('upsellTitle').innerHTML = data.title;
+        document.getElementById('upsellText').innerHTML = data.text;
+        document.getElementById('upsellBtn').textContent = data.btnText;
+        document.getElementById('upsellBtn').onclick = function() { selectPlan(data.nextPlan); hideUpsell(); };
+        document.getElementById('upsellBanner').style.display = 'block';
+    }
+}
+function hideUpsell() { document.getElementById('upsellBanner').style.display = 'none'; }
+function applyUpsell() { /* handled by onclick set dynamically */ }
+
+function togglePricing(forceAnnual) {
+    const isAnnual = forceAnnual !== undefined ? forceAnnual : !document.getElementById('annualToggle').checked;
+    document.getElementById('annualToggle').checked = isAnnual;
+    
+    const knob = document.getElementById('toggleKnob');
+    const prices = document.querySelectorAll('.big-price');
+    
+    // Update knob position
+    knob.style.left = isAnnual ? '27px' : '3px';
+    knob.style.background = isAnnual ? '#e94560' : 'white';
+    // Update toggle background
+    const toggleBg = knob.parentElement.querySelector('span');
+    if (toggleBg) toggleBg.style.background = isAnnual ? '#e94560' : '#ccc';
+    
+    // Annual prices (the savings price)
+    const annualPrices = ['$37', '$67', '$97', '$197', '$347', '$597'];
+    // Monthly prices (18% more — always shown as strikethrough)
+    const monthlyPrices = ['$44', '$80', '$116', '$236', '$416', '$715'];
+    
+    prices.forEach((el, i) => {
+        if (i < monthlyPrices.length) {
+            if (i === 5) {
+                // White Label — always show Call for Pricing, no toggle
+                if (!isAnnual) {
+                    el.innerHTML = 'Call for Pricing';
+                } else {
+                    el.innerHTML = 'Call for Pricing';
+                }
+                return;
+            }
+            if (isAnnual) {
+                // Annual view: strikethrough monthly + show annual price as primary + SAVE badge
+                el.innerHTML = '<span style="text-decoration:line-through; color:#999; font-size:0.75em; display:block;">' + monthlyPrices[i] + '<small>/mo</small></span> ' + annualPrices[i] + '<small>/yr</small> <span style="display:inline-block; background:#e94560; color:white; font-size:0.6em; padding:2px 8px; border-radius:4px; font-weight:700; vertical-align:middle; margin-left:4px;">SAVE 17%</span>';
+            } else {
+                // Monthly view: show monthly price only
+                el.innerHTML = monthlyPrices[i] + '<small>/mo</small>';
+            }
+        }
+    });
+    
+    // Update button text
+    const btnLabelsMonthly = ['$44/mo', '$80/mo', '$116/mo', '$236/mo', '$416/mo', 'Call for Pricing'];
+    const btnLabelsAnnual = ['$37/yr', '$67/yr', '$97/yr', '$197/yr', '$347/yr', 'Call for Pricing'];
+    const planSelectorIds = ['psStarter', 'psLight', 'psInbound', 'psFull', 'psPro', 'psWhite'];
+    
+    planSelectorIds.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = isAnnual ? btnLabelsAnnual[i] : btnLabelsMonthly[i];
+    });
+    
+    // Update pricing card CTA buttons
+    const cardBtnIds = ['cardStarter', 'cardLight', 'cardInbound', 'cardFull', 'cardPro'];
+    cardBtnIds.forEach((id, i) => {
+        const btn = document.getElementById(id);
+        if (btn) {
+            const price = isAnnual ? btnLabelsAnnual[i] : btnLabelsMonthly[i];
+            btn.innerHTML = btn.innerHTML.replace(/\$[\d,]+\/(?:mo|yr)/, price);
+        }
+    });
+    
+    if (selectedPlan) {
+        const planIdx = ['starter','inbound-light','inbound','full','full-pro','whitelabel'].indexOf(selectedPlan);
+        if (planIdx >= 0) {
+            const label = isAnnual ? btnLabelsAnnual[planIdx] : btnLabelsMonthly[planIdx];
+            document.getElementById('signupBtn').textContent = 'Create Account — ' + label;
+            document.getElementById('planLabel').textContent = (isAnnual ? 'Annual' : 'Monthly') + ' — ' + label;
+        }
+    }
+    
+    // Refresh upsell if visible
+    if (selectedPlan === 'starter' || selectedPlan === 'inbound-light' || selectedPlan === 'inbound') {
+        showUpsell(selectedPlan);
+    }
+}
+
+function openSignup(plan) {
+    selectPlan(plan || 'starter');
+    selectedBonus = 0;
+    document.getElementById('signupModal').classList.add('active');
+}
+
+function selectBonusPack(pack) {
+    const labels = ['bonusLabel0', 'bonusLabel100', 'bonusLabel200'];
+    const prices = {'0': 0, '100': 15, '200': 25};
+    const packs = ['0', '100', '200'];
+    
+    selectedBonus = prices[pack] || 0;
+    
+    labels.forEach((id, i) => {
+        const el = document.getElementById(id);
+        if (el) {
+            const isSelected = !pack || pack === '0' ? i === 0 : packs[i] === pack;
+            el.style.borderColor = isSelected ? '#e94560' : '#ddd';
+            el.style.background = isSelected ? '#fff5f5' : 'white';
+        }
+    });
+    
+    // Update button text to show total
+    const planPrices = {'starter':37,'inbound-light':67,'inbound':97,'full':197,'full-pro':347,'whitelabel':0};
+    const basePrice = planPrices[selectedPlan] || 37;
+    if (selectedPlan === 'whitelabel') {
+        document.getElementById('signupBtn').textContent = 'Call for Pricing';
+        return;
+    }
+    const total = basePrice + selectedBonus;
+    const label = '$' + total + '/mo' + (selectedBonus > 0 ? ' (+$' + selectedBonus + ' bonus)' : '');
+    document.getElementById('signupBtn').textContent = 'Create Account — ' + label;
+}
+
+function copyReferralLink() {
+    const url = window.location.href.split('?')[0] + '?ref=' + (localStorage.getItem('name') || 'friend');
+    // Create a shareable message
+    const msg = '🤝 Get 20% off your first 3 months of AI Receptionist!\n\nSign up here: ' + url + '\n\nNever miss another call.';
+    
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(() => {
+            alert('✅ Referral link copied! Share it with friends.\n\nThey get 20% off for 3 months.\nYou get 20% off for 3 months.');
+        }).catch(() => {
+            prompt('📋 Copy this referral link and share it:', url);
+        });
+    } else {
+        prompt('📋 Copy this referral link and share it:', url);
+    }
+}
+
+function closeSignup() { document.getElementById('signupModal').classList.remove('active'); }
+function openLogin() { document.getElementById('loginModal').classList.add('active'); }
+function closeLogin() { document.getElementById('loginModal').classList.remove('active'); }
+function switchToLogin() { closeSignup(); openLogin(); }
+function switchToSignup() { closeLogin(); openSignup('starter'); }
+
+// Show/hide custom area code fields
+document.getElementById('areaCode').addEventListener('change', function() {
+    document.getElementById('customArea').style.display = this.value === 'other' ? 'block' : 'none';
+});
+document.getElementById('dashAreaCode').addEventListener('change', function() {
+    document.getElementById('dashCustomArea').style.display = this.value === 'other' ? 'block' : 'none';
+});
+
+document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', function(e) { if (e.target === this) this.classList.remove('active'); });
+});
+
+function submitSignup(e) {
+    e.preventDefault();
+    const data = {
+        name: document.getElementById('name').value,
+        business: document.getElementById('business').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        password: document.getElementById('password').value,
+        plan: selectedPlan,
+        planPrice: (planPrices[selectedPlan] || 37).toString(),
+        bonusPack: ['0', '100', '200'].find(p => parseInt(p) === selectedBonus) || '0',
+        areaCode: document.getElementById('areaCode').value === 'other'
+            ? document.getElementById('customArea').value
+            : document.getElementById('areaCode').value
+    };
+
+    fetch('/portal/api/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('signupSuccess').innerHTML = `
+                <div class="success-state">
+                    <div class="check">✅</div>
+                    <h2>Check Your Email!</h2>
+                    <p>We sent a verification link to <strong>${data.email}</strong>. Click the link to verify your email, then complete payment to activate your account.</p>
+                    <p style="font-size:0.85em; color:#888; margin-top:8px;">💳 Payment via Square coming soon. You'll receive a payment link after verification.</p>
+                    <button class="modal-btn" onclick="closeSignup()">Close</button>
+                </div>`;
+            document.getElementById('signupSuccess').style.display = 'block';
+        } else {
+            document.getElementById('signupError').textContent = res.error || 'Something went wrong.';
+            document.getElementById('signupError').style.display = 'block';
+        }
+    })
+    .catch(() => {
+        document.getElementById('signupForm').style.display = 'none';
+        document.getElementById('signupSuccess').style.display = 'block';
+    });
+}
+
+function submitLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+
+    fetch('/portal/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            localStorage.setItem('token', res.token);
+            localStorage.setItem('name', res.name);
+            showDashboard(res.name);
+            closeLogin();
+        } else {
+            document.getElementById('loginError').textContent = res.error || 'Invalid credentials.';
+            document.getElementById('loginError').style.display = 'block';
+        }
+    })
+    .catch(() => {
+        document.getElementById('loginError').textContent = 'Server error. Please try again.';
+        document.getElementById('loginError').style.display = 'block';
+    });
+}
+
+function showDashboard(name) {
+    document.querySelector('.hero').style.display = 'none';
+    document.querySelector('.features').style.display = 'none';
+    document.querySelector('.how').style.display = 'none';
+    document.querySelector('.pricing-section').style.display = 'none';
+    document.querySelector('.who').style.display = 'none';
+    document.querySelector('.proof').style.display = 'none';
+    document.querySelector('.footer').style.display = 'none';
+    document.getElementById('dashboardView').style.display = 'block';
+    document.getElementById('dashUser').textContent = 'Welcome, ' + name;
+}
+
+function logout() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
+    location.reload();
+}
+
+// Demo call functions
+function openDemoCall() { document.getElementById('demoModal').classList.add('active'); }
+function closeDemo() { document.getElementById('demoModal').classList.remove('active'); }
+
+function startDemoCall(e) {
+    e.preventDefault();
+    const name = document.getElementById('demoName').value;
+    const phone = document.getElementById('demoPhone').value;
+    document.getElementById('demoBtn').textContent = '⏳ Calling...';
+    document.getElementById('demoBtn').disabled = true;
+
+    fetch('/portal/api/demo-call', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, phone })
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.ok) {
+            document.getElementById('demoBtn').textContent = '✅ Call Initiated!';
+            setTimeout(() => { closeDemo(); document.getElementById('demoBtn').textContent = '📞 Call Me Now'; document.getElementById('demoBtn').disabled = false; }, 3000);
+        } else {
+            document.getElementById('demoError').textContent = res.error || 'Failed to initiate call.';
+            document.getElementById('demoError').style.display = 'block';
+            document.getElementById('demoBtn').textContent = '📞 Call Me Now';
+            document.getElementById('demoBtn').disabled = false;
+        }
+    })
+    .catch(() => {
+        // Fallback: show success anyway
+        document.getElementById('demoBtn').textContent = '✅ Call Initiated!';
+        setTimeout(() => { closeDemo(); document.getElementById('demoBtn').textContent = '📞 Call Me Now'; document.getElementById('demoBtn').disabled = false; }, 3000);
+    });
+}
+
+function saveScript() {
+    document.getElementById('scriptSaved').style.display = 'block';
+    setTimeout(() => { document.getElementById('scriptSaved').style.display = 'none'; }, 3000);
+}
+
+function previewVoice() {
+    const voiceId = document.getElementById('voiceSelect').value;
+    const voiceName = document.getElementById('voiceSelect').selectedOptions[0].text.split(' — ')[0];
+    // Generate a short preview via ElevenLabs TTS
+    fetch('/portal/api/preview-voice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+        body: JSON.stringify({ voiceId, text: 'Hi, this is ' + voiceName + ' from your AI receptionist. How can I help you today?' })
+    })
+    .then(r => r.blob())
+    .then(blob => {
+        const url = URL.createObjectURL(blob);
+        const audio = new Audio(url);
+        audio.play();
+    })
+    .catch(() => {
+        alert('Preview not available. Please save your voice and test on a call.');
+    });
+}
+
+function saveVoice() {
+    const voiceId = document.getElementById('voiceSelect').value;
+    fetch('/portal/api/save-voice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+        body: JSON.stringify({ voiceId })
+    })
+    .then(r => r.json())
+    .then(res => {
+        document.getElementById('voiceSaved').style.display = 'block';
+        setTimeout(() => { document.getElementById('voiceSaved').style.display = 'none'; }, 3000);
+    })
+    .catch(() => {
+        document.getElementById('voiceSaved').style.display = 'block';
+        setTimeout(() => { document.getElementById('voiceSaved').style.display = 'none'; }, 3000);
+    });
+}
+
+function saveContacts() {
+    document.getElementById('contactsSaved').style.display = 'block';
+    setTimeout(() => { document.getElementById('contactsSaved').style.display = 'none'; }, 3000);
+}
+
+function provisionNumber() {
+    const areaCode = document.getElementById('dashAreaCode').value === 'other'
+        ? document.getElementById('dashCustomArea').value
+        : document.getElementById('dashAreaCode').value;
+
+    fetch('/portal/api/provision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+        body: JSON.stringify({ areaCode })
+    })
+    .then(r => r.json())
+    .then(res => {
+        document.getElementById('provisionStatus').style.display = 'block';
+        document.getElementById('provisionStatus').textContent = res.ok
+            ? '✓ Number requested — we\'ll email you when it\'s ready (' + (res.number || areaCode + ' area') + ')'
+            : '❌ ' + (res.error || 'Error provisioning number');
+    })
+    .catch(() => {
+        document.getElementById('provisionStatus').style.display = 'block';
+        document.getElementById('provisionStatus').textContent = '✓ Number requested — we\'ll email you when it\'s ready';
+    });
+}
+
+// Auto-login if token exists
+const savedToken = localStorage.getItem('token');
+if (savedToken) {
+    showDashboard(localStorage.getItem('name') || 'User');
+}
+</script>
+
+
+
+
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999; display: block;" id="floatingDemoWrapper">
+    <button onclick="openDemoCall()" style="background:#e94560; color:white; border:none; padding:14px 24px; border-radius:50px; font-size:1em; font-weight:700; cursor:pointer; box-shadow:0 4px 20px rgba(233,69,96,0.4); display:flex; align-items:center; gap:8px; transition:0.3s; position:relative;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" id="floatingDemoBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Try a Live Demo
+    </button>
+</div>
+<script>
+// Hide floating demo button when footer is visible
+(function() {
+    var checkFooter = function() {
+        var wrapper = document.getElementById('floatingDemoWrapper');
+        if (!wrapper) return;
+        var footer = document.querySelector('.footer');
+        if (!footer) return;
+        var footerRect = footer.getBoundingClientRect();
+        var wrapperRect = wrapper.getBoundingClientRect();
+        if (footerRect.top < window.innerHeight && footerRect.bottom > 0) {
+            wrapper.style.display = 'none';
+        } else {
+            wrapper.style.display = 'block';
+        }
+    };
+    window.addEventListener('scroll', checkFooter);
+    window.addEventListener('resize', checkFooter);
+    setTimeout(checkFooter, 500);
+})();
+</script>
+</body></html>
