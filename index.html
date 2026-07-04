@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <title>AI Receptionist — Never Miss Another Call | Made in Canada</title>
 <meta name="description" content="AI-powered virtual receptionist for Canadian businesses. Answers calls 24/7, sends SMS &amp; email recaps, detects voicemail, supports 40+ languages. Plans from $44/mo.">
@@ -94,23 +96,80 @@
         .success-state .portal-btn { display: inline-block; background: #0f3460; color: white; padding: 14px 40px; border-radius: 8px; font-size: 1em; font-weight: 700; text-decoration: none; margin-top: 18px; }
 
         /* === DASHBOARD === */
-        .dash-header { background: #1a1a2e; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
-        .dash-header .logo { font-weight: 700; font-size: 1em; }
-        .dash-header .user { font-size: 0.85em; opacity: 0.8; }
-        .dash-body { padding: 30px 20px; max-width: 900px; margin: 0 auto; }
-        .dash-body h2 { margin-bottom: 20px; }
-        .dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 30px; }
-        .dash-card { background: #f8f9fa; padding: 20px; border-radius: 12px; text-align: center; }
-        .dash-card .stat { font-size: 2em; font-weight: 800; color: #0f3460; }
-        .dash-card .label { color: #666; font-size: 0.85em; margin-top: 5px; }
-        .dash-section { margin-bottom: 30px; }
-        .dash-section h3 { margin-bottom: 12px; color: #0f3460; }
-        .dash-section label { display: block; font-weight: 600; font-size: 0.85em; margin-top: 12px; margin-bottom: 4px; }
-        .dash-section textarea { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; min-height: 80px; font-family: inherit; }
-        .dash-section input { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 0.9em; }
-        .dash-section .save-btn { background: #0f3460; color: white; border: none; padding: 10px 25px; border-radius: 8px; font-size: 0.9em; font-weight: 600; cursor: pointer; margin-top: 12px; }
-        .dash-section .save-btn:hover { background: #1a1a2e; }
-        .dash-section .saved { color: #22c55e; font-size: 0.85em; margin-top: 8px; display: none; }
+        #dashboardView { display:none; min-height:100vh; background:#f0f2f5; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; }
+        .dash-wrap { display:flex; min-height:100vh; }
+        /* Sidebar */
+        .dash-sidebar { width:220px; background:#1a1a2e; color:white; padding:0; flex-shrink:0; display:flex; flex-direction:column; }
+        .dash-sidebar .sb-brand { padding:20px; font-weight:800; font-size:1.1em; border-bottom:1px solid rgba(255,255,255,0.08); }
+        .dash-sidebar .sb-nav { flex:1; padding:10px 0; }
+        .dash-sidebar .sb-nav a { display:flex; align-items:center; gap:10px; padding:11px 20px; color:rgba(255,255,255,0.7); text-decoration:none; font-size:0.9em; transition:0.2s; }
+        .dash-sidebar .sb-nav a:hover { background:rgba(255,255,255,0.05); color:white; }
+        .dash-sidebar .sb-nav a.active { background:#e94560; color:white; font-weight:600; }
+        .dash-sidebar .sb-nav a .nav-icon { font-size:1.1em; width:20px; text-align:center; }
+        .dash-sidebar .sb-footer { padding:15px 20px; border-top:1px solid rgba(255,255,255,0.08); }
+        .dash-sidebar .sb-footer a { color:rgba(255,255,255,0.5); text-decoration:none; font-size:0.82em; }
+        .dash-sidebar .sb-footer a:hover { color:white; }
+        /* Main */
+        .dash-main { flex:1; display:flex; flex-direction:column; min-width:0; }
+        .dash-topbar { background:white; padding:12px 24px; display:flex; justify-content:flex-end; align-items:center; gap:16px; border-bottom:1px solid #e5e7eb; }
+        .dash-topbar .notif { position:relative; cursor:pointer; font-size:1.2em; }
+        .dash-topbar .notif .badge { position:absolute; top:-6px; right:-8px; background:#e94560; color:white; font-size:0.6em; font-weight:700; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+        .dash-topbar .profile { display:flex; align-items:center; gap:8px; cursor:pointer; }
+        .dash-topbar .profile .avatar { width:34px; height:34px; border-radius:50%; background:#0f3460; color:white; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.8em; }
+        .dash-topbar .profile .name { font-size:0.85em; font-weight:600; color:#1a1a2e; }
+        .dash-content { padding:24px; flex:1; overflow-y:auto; }
+        /* Stats cards */
+        .dash-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:24px; }
+        .dash-stat-card { background:white; border-radius:12px; padding:20px 24px; box-shadow:0 1px 3px rgba(0,0,0,0.06); display:flex; align-items:center; gap:16px; }
+        .dash-stat-card .stat-icon { width:48px; height:48px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.3em; flex-shrink:0; }
+        .dash-stat-card .stat-info .stat-val { font-size:1.8em; font-weight:800; color:#1a1a2e; line-height:1.1; }
+        .dash-stat-card .stat-info .stat-lbl { font-size:0.8em; color:#888; margin-top:2px; }
+        .stat-green .stat-icon { background:#dcfce7; color:#16a34a; }
+        .stat-blue .stat-icon { background:#dbeafe; color:#2563eb; }
+        .stat-orange .stat-icon { background:#ffedd5; color:#ea580c; }
+        .stat-purple .stat-icon { background:#f3e8ff; color:#9333ea; }
+        /* Toolbar */
+        .dash-toolbar { display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px; }
+        .dash-toolbar .date-picker { display:flex; align-items:center; gap:8px; background:white; border:1px solid #e5e7eb; border-radius:8px; padding:8px 14px; font-size:0.85em; color:#666; cursor:pointer; }
+        .dash-toolbar .btn-export { background:#0f3460; color:white; border:none; padding:9px 20px; border-radius:8px; font-size:0.85em; font-weight:600; cursor:pointer; }
+        .dash-toolbar .btn-export:hover { background:#1a1a2e; }
+        /* Table */
+        .dash-table-wrap { background:white; border-radius:12px; box-shadow:0 1px 3px rgba(0,0,0,0.06); overflow:hidden; }
+        .dash-table { width:100%; border-collapse:collapse; font-size:0.88em; }
+        .dash-table th { background:#f9fafb; padding:12px 16px; text-align:left; font-weight:600; color:#666; font-size:0.8em; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid #e5e7eb; }
+        .dash-table td { padding:14px 16px; border-bottom:1px solid #f3f4f6; color:#374151; }
+        .dash-table tr:last-child td { border-bottom:none; }
+        .dash-table .status { display:inline-flex; align-items:center; gap:5px; font-weight:600; font-size:0.85em; }
+        .dash-table .status .dot { width:7px; height:7px; border-radius:50%; }
+        .dash-table .status.answered { color:#16a34a; } .dash-table .status.answered .dot { background:#16a34a; }
+        .dash-table .status.voicemail { color:#2563eb; } .dash-table .status.voicemail .dot { background:#2563eb; }
+        .dash-table .status.missed { color:#e94560; } .dash-table .status.missed .dot { background:#e94560; }
+        /* Pagination */
+        .dash-pagination { display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-top:1px solid #f3f4f6; font-size:0.82em; color:#888; }
+        .dash-pagination .pages { display:flex; gap:4px; }
+        .dash-pagination .pages button { width:32px; height:32px; border:1px solid #e5e7eb; border-radius:6px; background:white; cursor:pointer; font-size:0.85em; font-weight:500; }
+        .dash-pagination .pages button.active { background:#0f3460; color:white; border-color:#0f3460; }
+        .dash-pagination .pages button:hover:not(.active) { background:#f9fafb; }
+        /* Settings panels (hidden by default) */
+        .dash-panel { display:none; }
+        .dash-panel.active { display:block; }
+        .dash-section { margin-bottom:30px; }
+        .dash-section h3 { margin-bottom:12px; color:#0f3460; }
+        .dash-section label { display:block; font-weight:600; font-size:0.85em; margin-top:12px; margin-bottom:4px; }
+        .dash-section textarea { width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; min-height:80px; font-family:inherit; }
+        .dash-section input { width:100%; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; }
+        .dash-section .save-btn { background:#0f3460; color:white; border:none; padding:10px 25px; border-radius:8px; font-size:0.9em; font-weight:600; cursor:pointer; margin-top:12px; }
+        .dash-section .save-btn:hover { background:#1a1a2e; }
+        .dash-section .saved { color:#22c55e; font-size:0.85em; margin-top:8px; display:none; }
+        @media (max-width:768px) {
+            .dash-stats { grid-template-columns:repeat(2,1fr); }
+            .dash-sidebar { width:60px; }
+            .dash-sidebar .sb-nav a span:not(.nav-icon) { display:none; }
+            .dash-sidebar .sb-brand { font-size:0; padding:15px 10px; }
+            .dash-sidebar .sb-brand::after { content:'AI'; font-size:0.9em; font-weight:800; }
+            .dash-sidebar .sb-footer a { font-size:0; }
+            .dash-sidebar .sb-footer a::after { content:'⏻'; font-size:1em; }
+        }
 
         @media (max-width: 600px) {
             .hero h1 { font-size: 2em; }
@@ -141,6 +200,7 @@
             <a href="#" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}); return false;" style="color:rgba(255,255,255,0.7); text-decoration:none;">Pricing</a>
             <a href="#" onclick="document.querySelector('.proof').nextElementSibling.scrollIntoView({behavior:'smooth'}); return false;" style="color:rgba(255,255,255,0.7); text-decoration:none;">FAQ</a>
             <a href="#" onclick="openDemoCall(); return false;" style="color:#e94560; font-weight:700; text-decoration:none;">Demo</a>
+            <a href="#" onclick="openLogin(); return false;" style="background:#e94560; color:white; padding:8px 20px; border-radius:8px; font-weight:700; text-decoration:none; font-size:0.9em; transition:0.2s;" onmouseover="this.style.background='#d63851'" onmouseout="this.style.background='#e94560'">Sign In</a>
         </div>
     </div>
 </nav>
@@ -151,15 +211,15 @@
         <h1>Your AI Receptionist</h1>
         <div style="display:flex; justify-content:center; gap:12px; align-items:center; margin-bottom:12px; flex-wrap:wrap;">
             <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#e94560" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#e94560" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 Made in Canada
             </span>
             <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                 24/7 AI Answering
             </span>
             <span style="background: #f0f0f0; padding:5px 14px; border-radius:20px; font-size:0.8em; color:#555; display:inline-flex; align-items:center; gap:5px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 Instant Setup
             </span>
         </div>
@@ -167,7 +227,7 @@
         <p style="opacity:0.7; font-size:0.95em;">Plans from $44/mo — AI answers · Takes messages · Voicemail detection · 40+ languages</p>
         <div class="cta-row">
             <a href="#" class="cta cta-outline" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'})" style="background:transparent; border:2px solid rgba(255,255,255,0.4); color:white;">View Plans</a>
-            <a href="#" class="cta" style="background:#e94560; border:none; color:white;" onclick="openDemoCall()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Try a Live Demo</a>
+            <a href="#" class="cta" style="background:#e94560; border:none; color:white;" onclick="openDemoCall()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Try a Live Demo</a>
         </div>
     </div>
 </section>
@@ -177,26 +237,26 @@
     <div class="container">
         <h2>What You Get</h2>
         <div class="grid">
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div><h3>Dedicated Number</h3><p>Port your number or get a new one. Kept forever.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg></div><h3>AI Receptionist</h3><p>Answers calls 24/7. Your script, your voice.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div><h3>Auto SMS Recap</h3><p>Every caller gets a recap text immediately.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path></svg></div><h3>Auto Email Follow-Up</h3><p>Recap email sent from your address.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div><h3>Built-in CRM</h3><p>Every caller saved. Searchable. Exportable.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path><path d="M16.67 7.33A5.66 5.66 0 0 1 20 10.07"></path></svg></div><h3>Voicemail Detection</h3><p>AI detects voicemail and drops a pre-recorded message. No wasted time.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div><h3>40+ Languages</h3><p>Auto-detects caller's language. Speaks French, Spanish, Mandarin, Punjabi, Tamil, and more.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg></div><h3>Self-Service Portal</h3><p>Login to manage everything. No support needed.</p></div>
-            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg></div><h3>Go Live in Minutes</h3><p>Sign up, configure, launch. All from your browser.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3>Dedicated Number</h3><p>Port your number or get a new one. Kept forever.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div><h3>AI Receptionist</h3><p>Answers calls 24/7. Your script, your voice.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><h3>Auto SMS Recap</h3><p>Every caller gets a recap text immediately.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg></div><h3>Auto Email Follow-Up</h3><p>Recap email sent from your address.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div><h3>Built-in CRM</h3><p>Every caller saved. Searchable. Exportable.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/><path d="M16.67 7.33A5.66 5.66 0 0 1 20 10.07"/></svg></div><h3>Voicemail Detection</h3><p>AI detects voicemail and drops a pre-recorded message. No wasted time.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>40+ Languages</h3><p>Auto-detects caller's language. Speaks French, Spanish, Mandarin, Punjabi, Tamil, and more.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div><h3>Self-Service Portal</h3><p>Login to manage everything. No support needed.</p></div>
+            <div class="card"><div class="icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Go Live in Minutes</h3><p>Sign up, configure, launch. All from your browser.</p></div>
         </div>
     </div>
 </section>
 
 <!-- ───── INTEGRATIONS ───── -->
-<section style="padding:70px 0;">
+<section id="preview-section" style="padding:70px 0;">
     <div class="container">
         <h2 style="text-align:center; font-size:2em; margin-bottom:20px; color:#1a1a2e;">See It In Action</h2>
         <p style="text-align:center; color:#888; font-size:0.9em; margin-bottom:30px; max-width:600px; margin-left:auto; margin-right:auto;">Manage calls, view transcripts, and track leads — all from your dashboard.</p>
         <div style="max-width:900px; margin:0 auto; border-radius:16px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,0.12); border:1px solid #eee;">
-            <img src="https://raw.githubusercontent.com/matrixshawn/ai-receptionist/main/dashboard-preview.png" alt="AI Receptionist Dashboard" style="width:100%; display:block; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+            <img src="https://receipt-fluid-collaborative-bow.trycloudflare.com/dashboard-preview.png" alt="AI Receptionist Dashboard" style="width:100%; display:block; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08);">
         </div>
         <div style="text-align:center; margin-top:20px; display:flex; justify-content:center; gap:30px; flex-wrap:wrap;">
             <div style="text-align:center;">
@@ -220,47 +280,47 @@
 </section>
 
 <!-- ───── INTEGRATIONS ───── -->
-<section style="padding:70px 0;">
+<section id="integrations-section" style="padding:70px 0;">
     <div class="container">
         <h2 style="text-align:center; font-size:2em; margin-bottom:40px; color:#1a1a2e;">Integrates With Your Tools</h2>
         <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(140px, 1fr)); gap:16px; max-width:800px; margin:0 auto;">
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Google Calendar</div>
                 <div style="color:#666; font-size:0.7em;">Auto-booking</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0078d4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/><path d="M16 18h.01"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Outlook Calendar</div>
                 <div style="color:#666; font-size:0.7em;">+ iCloud · Yahoo</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#e94560" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Calendly</div>
                 <div style="color:#666; font-size:0.7em;">Booking links</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff4f00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Zapier</div>
                 <div style="color:#666; font-size:0.7em;">2,000+ apps</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0085a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0085a1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Make</div>
                 <div style="color:#666; font-size:0.7em;">Automation</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0f3460" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M20 7h-4a4 4 0 0 0-8 0H4"></path><path d="M4 7l.867 11.27A2 2 0 0 0 6.86 20h10.28a2 2 0 0 0 1.993-1.73L20 7"></path><path d="M10 11v5"></path><path d="M14 11v5"></path></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0f3460" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M20 7h-4a4 4 0 0 0-8 0H4"/><path d="M4 7l.867 11.27A2 2 0 0 0 6.86 20h10.28a2 2 0 0 0 1.993-1.73L20 7"/><path d="M10 11v5"/><path d="M14 11v5"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">GoHighLevel</div>
                 <div style="color:#666; font-size:0.7em;">CRM</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M21.2 15c.7-1.2 1-2.5 1-3.9a9 9 0 0 0-9-9 9 9 0 0 0-9 9c0 4.1 2.6 7.6 6.2 8.9"></path><path d="M15 21.7c1.2-.3 2.4-.8 3.4-1.5"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><path d="M21.2 15c.7-1.2 1-2.5 1-3.9a9 9 0 0 0-9-9 9 9 0 0 0-9 9c0 4.1 2.6 7.6 6.2 8.9"/><path d="M15 21.7c1.2-.3 2.4-.8 3.4-1.5"/><circle cx="12" cy="12" r="3"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">Webhooks</div>
                 <div style="color:#666; font-size:0.7em;">Custom APIs</div>
             </div>
             <div style="background:#f8f9fa; padding:18px 12px; border-radius:12px; text-align:center;">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10a37f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10a37f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:8px;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                 <div style="font-weight:600; font-size:0.85em;">OpenAI</div>
                 <div style="color:#666; font-size:0.7em;">AI integration</div>
             </div>
@@ -312,7 +372,7 @@
                     <div class="item">Phone number set up within 24 hours</div>
                     <div class="item">Basic webhook integration</div>
                     <div class="item">OpenAI integration</div>
-                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Call recordings & transcriptions</div>
                     <div class="item">Basic script templates</div>
                     <div class="item">Web-based calling (WebRTC)</div>
                     <div class="item">Data retention: 1 month</div>
@@ -339,7 +399,7 @@
                     <div class="item">Auto language detection (supports 40+ languages)</div>
                     <div class="item">Basic webhook integration</div>
                     <div class="item">OpenAI integration</div>
-                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Call recordings & transcriptions</div>
                     <div class="item">Basic script templates</div>
                     <div class="item">Web-based calling (WebRTC)</div>
                     <div class="item">Data retention: 3 months</div>
@@ -366,7 +426,7 @@
                     <div class="item">Auto language detection (supports 40+ languages)</div>
                     <div class="item">Basic webhook integration</div>
                     <div class="item">OpenAI integration</div>
-                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Call recordings & transcriptions</div>
                     <div class="item">Basic script templates</div>
                     <div class="item">Web-based calling (WebRTC)</div>
                     <div class="item">Data retention: 3 months</div>
@@ -389,14 +449,14 @@
                     <div class="item">Voicemail drop on no answer</div>
                     <div class="item">Outbound SMS follow-ups</div>
                     <div class="item">Upload your contact list</div>
-                    <div class="item">Voicemail detection &amp; drop</div>
+                    <div class="item">Voicemail detection & drop</div>
                     <div class="item">Auto language detection (40+ languages)</div>
                     <div class="item">Call results report</div>
                     <div class="item">Phone number set up within 24 hours</div>
                     <div class="item">400 calls / 800 minutes total</div>
                     <div class="item">Basic webhook integration</div>
                     <div class="item">OpenAI integration</div>
-                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Call recordings & transcriptions</div>
                     <div class="item">Basic script templates</div>
                     <div class="item">Web-based calling (WebRTC)</div>
                     <div class="item">Data retention: 6 months</div>
@@ -422,7 +482,7 @@
                     <div class="item">800 calls / 1,600 minutes total</div>
                     <div class="item">Basic webhook integration</div>
                     <div class="item">OpenAI integration</div>
-                    <div class="item">Call recordings &amp; transcriptions</div>
+                    <div class="item">Call recordings & transcriptions</div>
                     <div class="item">Basic script templates</div>
                     <div class="item">Web-based calling (WebRTC)</div>
                     <div class="item">Data retention: 12 months</div>
@@ -546,7 +606,7 @@
 </section>
 
 <!-- ───── WHO THIS IS FOR ───── -->
-<section style="padding:70px 0; background:#f8f9fa;">
+<section id="faq-section" style="padding:70px 0; background:#f8f9fa;">
     <div class="container" style="max-width:700px;">
         <h2 style="text-align:center; font-size:2em; margin-bottom:40px; color:#1a1a2e;">Frequently Asked Questions</h2>
         
@@ -585,20 +645,20 @@
 <!-- ───── FOOTER ───── -->
 <footer class="footer">
     <p><a href="#" onclick="document.getElementById('pricing-section').scrollIntoView({behavior:'smooth'}); return false;">View Plans</a> | <a href="#" onclick="openSignup('starter'); return false;">Get Started Free</a></p>
-    <p style="margin-top:5px; font-size:0.8em;">AI Receptionist • Never Miss Another Call</p>
+    <p style="margin-top:5px; font-size:0.8em;">AI Receptionist &bull; Never Miss Another Call</p>
     <p style="margin-top:5px; font-size:0.75em;"><a href="#" onclick="alert('Privacy Policy: Your data is handled with care. Call recordings are encrypted and stored securely. We never share your data with third parties. You can request deletion at any time.')">Privacy Policy</a> | <a href="#" onclick="alert('Terms of Service: Monthly subscription. Cancel anytime. No setup fees. Overage billed at $0.25/min. Toll-free numbers $12/mo + $0.03/min.')">Terms of Service</a> | <a href="mailto:info@effenai.com">Contact</a></p>
     <p style="margin-top:8px; font-size:0.75em; color:#bbb;">
-        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">LinkedIn</a> •
-        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">Twitter/X</a> •
+        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">LinkedIn</a> &bull;
+        <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">Twitter/X</a> &bull;
         <a href="#" style="color:#bbb; text-decoration:none; margin:0 5px;">Facebook</a>
-        <br><span style="font-size:0.9em;">© 2026 AI Receptionist. All rights reserved.</span>
+        <br><span style="font-size:0.9em;">&copy; 2026 AI Receptionist. All rights reserved.</span>
     </p>
 </footer>
 
 <!-- ───── SIGNUP MODAL ───── -->
 <div class="modal-overlay" id="signupModal">
     <div class="modal">
-        <button class="close" onclick="closeSignup()">×</button>
+        <button class="close" onclick="closeSignup()">&times;</button>
         <div id="signupForm">
             <h2>Create Your Account</h2>
             <p class="subtitle" id="planLabel">Inbound — $197/mo</p>
@@ -621,11 +681,11 @@
 
             <form onsubmit="submitSignup(event)">
                 <div class="row">
-                    <div><label>Full Name</label><input type="text" id="name" placeholder="Your name" required=""></div>
+                    <div><label>Full Name</label><input type="text" id="name" placeholder="Your name" required></div>
                     <div><label>Business</label><input type="text" id="business" placeholder="Business name"></div>
                 </div>
-                <label>Email</label><input type="email" id="email" placeholder="you@example.com" required="">
-                <label>Phone</label><input type="tel" id="phone" placeholder="(647) 555-0123" required="">
+                <label>Email</label><input type="email" id="email" placeholder="you@example.com" required>
+                <label>Phone</label><input type="tel" id="phone" placeholder="(647) 555-0123" required>
                 <label>Desired Area Code for Your Business Number</label>
                 <div class="row">
                     <select id="areaCode" style="flex:1;">
@@ -640,7 +700,7 @@
                         </optgroup>
                         <optgroup label="Ontario">
                             <option value="416">416 — Toronto</option>
-                            <option value="647" selected="">647 — Toronto</option>
+                            <option value="647" selected>647 — Toronto</option>
                             <option value="437">437 — Toronto</option>
                             <option value="905">905 — GTA</option>
                             <option value="289">289 — GTA</option>
@@ -687,7 +747,7 @@
                             <option value="782">782 — Nova Scotia / PEI</option>
                             <option value="506">506 — New Brunswick</option>
                             <option value="428">428 — New Brunswick</option>
-                            <option value="709">709 — Newfoundland &amp; Labrador</option>
+                            <option value="709">709 — Newfoundland & Labrador</option>
                             <option value="867">867 — Nunavut / NWT / Yukon</option>
                         </optgroup>
                         <optgroup label="United States">
@@ -709,13 +769,13 @@
                     <input type="text" id="customArea" placeholder="Enter area code" style="display:none; flex:1;">
                 </div>
                 <p style="font-size:0.75em; color:#888; margin:-8px 0 12px;">Toll-free: <strong>$12/mo + $0.03/min</strong></p>
-                <label>Password</label><input type="password" id="password" placeholder="Min 8 characters" minlength="8" required="">
+                <label>Password</label><input type="password" id="password" placeholder="Min 8 characters" minlength="8" required>
                 <div style="margin:14px 0; padding:12px; background:#f0f6ff; border-radius:8px; border:1px solid #d0e3f7;">
                     <p style="font-size:0.82em; font-weight:600; color:#002868; margin-bottom:6px;">📦 Add a Bonus Minute Pack (optional)</p>
                     <p style="font-size:0.75em; color:#666; margin-bottom:8px;">Get extra minutes at a steep discount.</p>
                     <div style="display:flex; gap:6px; flex-wrap:wrap;">
                         <label style="flex:1; min-width:80px; text-align:center; padding:8px 4px; border:2px solid #ddd; border-radius:6px; cursor:pointer; font-size:0.78em; background:white;" id="bonusLabel0">
-                            <input type="radio" name="bonusPack" value="0" checked="" onchange="selectBonusPack('0')" style="display:none;"> None
+                            <input type="radio" name="bonusPack" value="0" checked onchange="selectBonusPack('0')" style="display:none;"> None
                         </label>
                         <label style="flex:1; min-width:80px; text-align:center; padding:8px 4px; border:2px solid #ddd; border-radius:6px; cursor:pointer; font-size:0.78em; background:white;" id="bonusLabel100">
                             <input type="radio" name="bonusPack" value="100" onchange="selectBonusPack('100')" style="display:none;"> +100 min<br><strong>$15</strong>
@@ -728,7 +788,7 @@
                 <div class="error" id="signupError"></div>
                 <button type="submit" id="signupBtn">Create Account</button>
                 <p style="font-size:0.72em; color:#999; text-align:center; margin-top:6px;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:3px;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
                     Secure payment via <strong>Square</strong> (coming soon). We'll notify you when payment is ready.
                 </p>
                 <p class="login-link">Already have an account? <a onclick="switchToLogin()">Log in</a></p>
@@ -749,13 +809,13 @@
 <!-- ───── LOGIN MODAL ───── -->
 <div class="modal-overlay" id="loginModal">
     <div class="modal">
-        <button class="close" onclick="closeLogin()">×</button>
+        <button class="close" onclick="closeLogin()">&times;</button>
         <div id="loginForm">
             <h2>Client Login</h2>
             <p class="subtitle">Access your dashboard</p>
             <form onsubmit="submitLogin(event)">
-                <label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com" required="">
-                <label>Password</label><input type="password" id="loginPassword" placeholder="Your password" required="">
+                <label>Email</label><input type="email" id="loginEmail" placeholder="you@example.com" required>
+                <label>Password</label><input type="password" id="loginPassword" placeholder="Your password" required>
                 <div class="error" id="loginError"></div>
                 <button type="submit">Log In</button>
                 <p class="login-link">No account? <a onclick="switchToSignup()">Sign up</a></p>
@@ -767,197 +827,353 @@
 <!-- ───── DEMO CALL MODAL ───── -->
 <div class="modal-overlay" id="demoModal">
     <div class="modal" style="max-width:400px;">
-        <button class="close" onclick="closeDemo()">×</button>
-        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Try a Live Demo</h2>
+        <button class="close" onclick="closeDemo()">&times;</button>
+        <h2><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:8px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Try a Live Demo</h2>
         <p class="subtitle">Enter your phone number and our AI will call you right now.</p>
         <form onsubmit="startDemoCall(event)">
             <label>Your Name</label>
-            <input type="text" id="demoName" placeholder="Your name" required="">
+            <input type="text" id="demoName" placeholder="Your name" required>
             <label>Your Phone Number</label>
-            <input type="tel" id="demoPhone" placeholder="(647) 555-0123" required="">
+            <input type="tel" id="demoPhone" placeholder="(647) 555-0123" required>
             <div class="error" id="demoError"></div>
-            <button type="submit" id="demoBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg> Call Me Now</button>
+            <button type="submit" id="demoBtn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:middle; margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Me Now</button>
         </form>
     </div>
 </div>
-<div id="dashboardView" style="display:none;">
-    <div class="dash-header">
-        <div class="logo">AI Receptionist</div>
-        <div>
-            <span class="user" id="dashUser"></span>
-            <button onclick="logout()" style="background:none; border:1px solid rgba(255,255,255,0.3); color:white; padding:6px 14px; border-radius:6px; cursor:pointer; font-size:0.8em; margin-left:12px;">Log Out</button>
-        </div>
-    </div>
-    <div class="dash-body">
-        <h2>Dashboard</h2>
-        <div class="dash-grid">
-            <div class="dash-card"><div class="stat" id="statCalls">0</div><div class="label">Total Calls</div></div>
-            <div class="dash-card"><div class="stat" id="statMessages">0</div><div class="label">Messages Taken</div></div>
-            <div class="dash-card"><div class="stat" id="statOutbound">0</div><div class="label">Outbound Calls</div></div>
-            <div class="dash-card"><div class="stat" id="statContacts">0</div><div class="label">Contacts Saved</div></div>
-        </div>
-
-        <div class="dash-section">
-            <h3>Your AI Voice</h3>
-            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose the voice your AI receptionist uses.</p>
-            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                <select id="voiceSelect" style="flex:1; min-width:200px; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em;">
-                    <optgroup label="Male — Professional">
-                        <option value="cjVigY5qzO86Huf0OWal" selected="">Eric — Smooth, Trustworthy</option>
-                        <option value="CwhRBWXzGAHq8TQ4Fs17">Roger — Laid-Back, Casual</option>
-                        <option value="iP95p4xoKVk53GoZ742B">Chris — Charming, Down-to-Earth</option>
-                        <option value="nPczCjzI2devNBz1zQrb">Brian — Deep, Resonant</option>
-                        <option value="bIHbv24MWmeRgasZH58o">Will — Relaxed Optimist</option>
-                        <option value="SOYHLrjzK2X1ezoPC6cr">Harry — Fierce Warrior</option>
-                        <option value="TX3LPaxmHKxFdv7VOQHJ">Liam — Energetic</option>
-                        <option value="pNInz6obpgDQGcFmaJgB">Adam — Dominant, Firm</option>
-                        <option value="N2lVS1w4EtoT3dr4eOWO">Callum — Husky Trickster</option>
-                    </optgroup>
-                    <optgroup label="Male — Accented">
-                        <option value="IKne3meq5aSn9XLyUdCD">Charlie — Deep, Confident (AUS)</option>
-                        <option value="JBFqnCBsd6RMkjVDRZzb">George — Warm, Captivating (UK)</option>
-                        <option value="onwK4e9ZLuTAKqWW03F9">Daniel — Steady Broadcaster (UK)</option>
-                    </optgroup>
-                    <optgroup label="Female — Professional">
-                        <option value="cgSgspJ2msm6clMCkdW9">Jessica — Playful, Bright</option>
-                        <option value="hpp4J3VqNfWAUOO0d1Us">Bella — Professional, Bright</option>
-                        <option value="XrExE9yKIg1WjnnlVkGX">Matilda — Knowledgeable</option>
-                        <option value="EXAVITQu4vr4xnSDxMaL">Sarah — Mature, Reassuring</option>
-                        <option value="FGY2WhTYpPnrIDTdsKH5">Laura — Enthusiast, Quirky</option>
-                    </optgroup>
-                    <optgroup label="Female — Accented">
-                        <option value="Xb7hH8MSUJpSbSDYk0k2">Alice — Clear, Engaging (UK)</option>
-                        <option value="pFZP5JQG7iQjIQuC4Bku">Lily — Velvety Actress (UK)</option>
-                    </optgroup>
-                    <optgroup label="Neutral">
-                        <option value="SAz9YHcvj6GT2YYXdXww">River — Relaxed, Neutral</option>
-                    </optgroup>
-                </select>
-                <button class="save-btn" onclick="previewVoice()">▶ Preview</button>
-                <button class="save-btn" onclick="saveVoice()">Save</button>
+<div id="dashboardView">
+    <div class="dash-wrap">
+        <!-- SIDEBAR -->
+        <div class="dash-sidebar">
+            <div class="sb-brand">AI Receptionist</div>
+            <div class="sb-nav">
+                <a href="#" class="active" onclick="switchDashPanel('overview'); return false;"><span class="nav-icon">📊</span> <span>Dashboard</span></a>
+                <a href="#" onclick="switchDashPanel('calls'); return false;"><span class="nav-icon">📞</span> <span>Calls</span></a>
+                <a href="#" onclick="switchDashPanel('contacts'); return false;"><span class="nav-icon">👥</span> <span>Contacts</span></a>
+                <a href="#" onclick="switchDashPanel('integrations'); return false;"><span class="nav-icon">🔌</span> <span>Integrations</span></a>
+                <a href="#" onclick="switchDashPanel('settings'); return false;"><span class="nav-icon">⚙️</span> <span>Settings</span></a>
             </div>
-            <div class="saved" id="voiceSaved" style="display:none; margin-top:8px;">✓ Voice saved</div>
+            <div class="sb-footer">
+                <a href="#" onclick="logout(); return false;">🚪 Logout</a>
+            </div>
         </div>
+        <!-- MAIN -->
+        <div class="dash-main">
+            <div class="dash-topbar">
+                <div class="notif" title="Notifications">🔔<span class="badge">3</span></div>
+                <div class="profile">
+                    <div class="avatar" id="dashAvatar">SA</div>
+                    <span class="name" id="dashUser">Shawn Allen</span>
+                </div>
+            </div>
+            <div class="dash-content">
+                <!-- OVERVIEW PANEL -->
+                <div class="dash-panel active" id="panel-overview">
+                    <div class="dash-stats">
+                        <div class="dash-stat-card stat-green">
+                            <div class="stat-icon">📞</div>
+                            <div class="stat-info"><div class="stat-val" id="statCalls">47</div><div class="stat-lbl">Calls Today</div></div>
+                        </div>
+                        <div class="dash-stat-card stat-blue">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info"><div class="stat-val" id="statAnswered">42</div><div class="stat-lbl">Answered</div></div>
+                        </div>
+                        <div class="dash-stat-card stat-orange">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-info"><div class="stat-val" id="statLeads">12</div><div class="stat-lbl">New Leads</div></div>
+                        </div>
+                        <div class="dash-stat-card stat-purple">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-info"><div class="stat-val" id="statDuration">3.2m</div><div class="stat-lbl">Avg Duration</div></div>
+                        </div>
+                    </div>
+                    <div class="dash-toolbar">
+                        <div class="date-picker">📅 Today</div>
+                        <button class="btn-export">📥 Export CSV</button>
+                    </div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Time</th><th>Caller</th><th>Number</th><th>Duration</th><th>Status</th><th>Notes</th></tr></thead>
+                            <tbody id="callLogBody">
+                                <tr><td>10:42 AM</td><td>Sarah Johnson</td><td>+1 (647) 555-0123</td><td>4:12</td><td><span class="status answered"><span class="dot"></span>Answered</span></td><td>Mortgage renewal inquiry</td></tr>
+                                <tr><td>9:18 AM</td><td>Mike Chen</td><td>+1 (416) 555-0456</td><td>2:05</td><td><span class="status voicemail"><span class="dot"></span>Voicemail</span></td><td>Callback requested</td></tr>
+                                <tr><td>8:45 AM</td><td>Lisa Patel</td><td>+1 (905) 555-0789</td><td>6:30</td><td><span class="status answered"><span class="dot"></span>Answered</span></td><td>New client intake</td></tr>
+                                <tr><td>8:02 AM</td><td>Tom Williams</td><td>+1 (437) 555-0321</td><td>—</td><td><span class="status missed"><span class="dot"></span>Missed</span></td><td>No message left</td></tr>
+                            </tbody>
+                        </table>
+                        <div class="dash-pagination">
+                            <span>Showing 1-4 of 47 calls</span>
+                            <div class="pages">
+                                <button class="active">1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button>4</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="dash-section">
-            <h3>Your AI Script</h3>
-            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">This is what your AI says when answering calls. Edit it anytime.</p>
-            <label>Greeting</label>
-            <input type="text" id="scriptGreeting" value="Hi, this is [your name] from [business]. How can I help you today?">
-            <label>Questions to ask (one per line)</label>
-            <textarea id="scriptQuestions">Can I get your name?
+                <!-- CALLS PANEL -->
+                <div class="dash-panel" id="panel-calls">
+                    <h2 style="margin-bottom:20px; color:#1a1a2e;">📞 Call History</h2>
+                    <div class="dash-toolbar">
+                        <div class="date-picker">📅 All Time</div>
+                        <button class="btn-export">📥 Export CSV</button>
+                    </div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Time</th><th>Caller</th><th>Number</th><th>Duration</th><th>Status</th><th>Notes</th></tr></thead>
+                            <tbody><tr><td colspan="6" style="text-align:center; padding:40px; color:#999;">Your call history will appear here once you start receiving calls.</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- CONTACTS PANEL -->
+                <div class="dash-panel" id="panel-contacts">
+                    <h2 style="margin-bottom:20px; color:#1a1a2e;">👥 Contacts</h2>
+                    <div class="dash-toolbar">
+                        <div style="font-size:0.85em; color:#666;">All saved contacts from your calls</div>
+                        <button class="btn-export">📥 Export CSV</button>
+                    </div>
+                    <div class="dash-table-wrap">
+                        <table class="dash-table">
+                            <thead><tr><th>Name</th><th>Phone</th><th>Email</th><th>Last Call</th><th>Notes</th></tr></thead>
+                            <tbody><tr><td colspan="5" style="text-align:center; padding:40px; color:#999;">Contacts will appear here as calls come in.</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- INTEGRATIONS PANEL -->
+                <div class="dash-panel" id="panel-integrations">
+                    <h2 style="margin-bottom:8px; color:#1a1a2e;">🔌 Integrations</h2>
+                    <p style="font-size:0.85em; color:#888; margin-bottom:24px;">Connect your tools to automate your workflow.</p>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr)); gap:16px;">
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">📅</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Google Calendar</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">Auto-booking</div>
+                            <button onclick="toggleIntegration(this)" style="background:#16a34a; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connected</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">📧</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Outlook Calendar</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">+ iCloud · Yahoo</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">🔗</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Calendly</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">Booking links</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">⚡</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Zapier</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">2,000+ apps</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">🔄</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Make</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">Automation</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">🏢</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">GoHighLevel</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">CRM</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">🪝</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">Webhooks</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">Custom APIs</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                        <div style="background:white; padding:20px; border-radius:12px; border:1px solid #e5e7eb; text-align:center; box-shadow:0 1px 3px rgba(0,0,0,0.04);">
+                            <div style="font-size:2em; margin-bottom:8px;">🤖</div>
+                            <div style="font-weight:600; font-size:0.9em; margin-bottom:4px;">OpenAI</div>
+                            <div style="color:#888; font-size:0.75em; margin-bottom:12px;">AI integration</div>
+                            <button onclick="toggleIntegration(this)" style="background:#0f3460; color:white; border:none; padding:8px 18px; border-radius:6px; font-size:0.8em; font-weight:600; cursor:pointer;">Connect</button>
+                        </div>
+                    </div>
+                    <p style="font-size:0.75em; color:#bbb; text-align:center; margin-top:20px;">Custom integrations available on Full Service and White Label plans.</p>
+                </div>
+
+                <!-- SETTINGS PANEL -->
+                <div class="dash-panel" id="panel-settings">
+                    <h2 style="margin-bottom:20px; color:#1a1a2e;">⚙️ Settings</h2>
+
+                    <div class="dash-section">
+                        <h3>Your AI Voice</h3>
+                        <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose the voice your AI receptionist uses.</p>
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                            <select id="voiceSelect" style="flex:1; min-width:200px; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em;">
+                                <optgroup label="Male — Professional">
+                                    <option value="cjVigY5qzO86Huf0OWal" selected>Eric — Smooth, Trustworthy</option>
+                                    <option value="CwhRBWXzGAHq8TQ4Fs17">Roger — Laid-Back, Casual</option>
+                                    <option value="iP95p4xoKVk53GoZ742B">Chris — Charming, Down-to-Earth</option>
+                                    <option value="nPczCjzI2devNBz1zQrb">Brian — Deep, Resonant</option>
+                                    <option value="bIHbv24MWmeRgasZH58o">Will — Relaxed Optimist</option>
+                                    <option value="SOYHLrjzK2X1ezoPC6cr">Harry — Fierce Warrior</option>
+                                    <option value="TX3LPaxmHKxFdv7VOQHJ">Liam — Energetic</option>
+                                    <option value="pNInz6obpgDQGcFmaJgB">Adam — Dominant, Firm</option>
+                                    <option value="N2lVS1w4EtoT3dr4eOWO">Callum — Husky Trickster</option>
+                                </optgroup>
+                                <optgroup label="Male — Accented">
+                                    <option value="IKne3meq5aSn9XLyUdCD">Charlie — Deep, Confident (AUS)</option>
+                                    <option value="JBFqnCBsd6RMkjVDRZzb">George — Warm, Captivating (UK)</option>
+                                    <option value="onwK4e9ZLuTAKqWW03F9">Daniel — Steady Broadcaster (UK)</option>
+                                </optgroup>
+                                <optgroup label="Female — Professional">
+                                    <option value="cgSgspJ2msm6clMCkdW9">Jessica — Playful, Bright</option>
+                                    <option value="hpp4J3VqNfWAUOO0d1Us">Bella — Professional, Bright</option>
+                                    <option value="XrExE9yKIg1WjnnlVkGX">Matilda — Knowledgeable</option>
+                                    <option value="EXAVITQu4vr4xnSDxMaL">Sarah — Mature, Reassuring</option>
+                                    <option value="FGY2WhTYpPnrIDTdsKH5">Laura — Enthusiast, Quirky</option>
+                                </optgroup>
+                                <optgroup label="Female — Accented">
+                                    <option value="Xb7hH8MSUJpSbSDYk0k2">Alice — Clear, Engaging (UK)</option>
+                                    <option value="pFZP5JQG7iQjIQuC4Bku">Lily — Velvety Actress (UK)</option>
+                                </optgroup>
+                                <optgroup label="Neutral">
+                                    <option value="SAz9YHcvj6GT2YYXdXww">River — Relaxed, Neutral</option>
+                                </optgroup>
+                            </select>
+                            <button class="save-btn" onclick="previewVoice()">▶ Preview</button>
+                            <button class="save-btn" onclick="saveVoice()">Save</button>
+                        </div>
+                        <div class="saved" id="voiceSaved" style="display:none; margin-top:8px;">✓ Voice saved</div>
+                    </div>
+
+                    <div class="dash-section">
+                        <h3>Your AI Script</h3>
+                        <p style="font-size:0.85em; color:#666; margin-bottom:10px;">This is what your AI says when answering calls. Edit it anytime.</p>
+                        <label>Greeting</label>
+                        <input type="text" id="scriptGreeting" value="Hi, this is [your name] from [business]. How can I help you today?">
+                        <label>Questions to ask (one per line)</label>
+                        <textarea id="scriptQuestions">Can I get your name?
 What's the best number to reach you?
 What are you calling about?
 Can I get your email so we can follow up?</textarea>
-            <label>Closing</label>
-            <textarea id="scriptClosing">Thanks for calling! Someone will follow up with you shortly.</textarea>
-            <button class="save-btn" onclick="saveScript()">Save Script</button>
-            <div class="saved" id="scriptSaved">✓ Saved</div>
-        </div>
+                        <label>Closing</label>
+                        <textarea id="scriptClosing">Thanks for calling! Someone will follow up with you shortly.</textarea>
+                        <button class="save-btn" onclick="saveScript()">Save Script</button>
+                        <div class="saved" id="scriptSaved">✓ Saved</div>
+                    </div>
 
-        <div class="dash-section">
-            <h3>Your Contact List (for outbound)</h3>
-            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Paste names and phone numbers. One per line: Name, Phone</p>
-            <textarea id="contactList" placeholder="John Smith, 647-555-0100
-Jane Doe, 416-555-0200"></textarea>
-            <button class="save-btn" onclick="saveContacts()">Upload Contacts</button>
-            <div class="saved" id="contactsSaved">✓ Uploaded</div>
-        </div>
+                    <div class="dash-section">
+                        <h3>Your Contact List (for outbound)</h3>
+                        <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Paste names and phone numbers. One per line: Name, Phone</p>
+                        <textarea id="contactList" placeholder="John Smith, 647-555-0100&#10;Jane Doe, 416-555-0200"></textarea>
+                        <button class="save-btn" onclick="saveContacts()">Upload Contacts</button>
+                        <div class="saved" id="contactsSaved">✓ Uploaded</div>
+                    </div>
 
-        <div class="dash-section">
-            <h3>Your Number</h3>
-            <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose your area code and we'll provision your dedicated business number.</p>
-            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-                <select id="dashAreaCode" style="padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; flex:1; min-width:150px;">
-                    <optgroup label="Toll-Free ($12/mo + $0.03/min)">
-                        <option value="800">800 — Toll-Free</option>
-                        <option value="888">888 — Toll-Free</option>
-                        <option value="877">877 — Toll-Free</option>
-                        <option value="866">866 — Toll-Free</option>
-                        <option value="855">855 — Toll-Free</option>
-                        <option value="844">844 — Toll-Free</option>
-                        <option value="833">833 — Toll-Free</option>
-                    </optgroup>
-                    <optgroup label="Ontario">
-                        <option value="416">416 — Toronto</option>
-                        <option value="647" selected="">647 — Toronto</option>
-                        <option value="437">437 — Toronto</option>
-                        <option value="905">905 — GTA</option>
-                        <option value="289">289 — GTA</option>
-                        <option value="365">365 — GTA</option>
-                        <option value="613">613 — Ottawa / Eastern ON</option>
-                        <option value="343">343 — Ottawa</option>
-                        <option value="705">705 — Northern ON</option>
-                        <option value="249">249 — Northern ON</option>
-                        <option value="519">519 — Southwestern ON</option>
-                        <option value="226">226 — Southwestern ON</option>
-                        <option value="807">807 — Thunder Bay / NW ON</option>
-                    </optgroup>
-                    <optgroup label="British Columbia">
-                        <option value="604">604 — Vancouver</option>
-                        <option value="778">778 — BC</option>
-                        <option value="236">236 — BC</option>
-                        <option value="250">250 — Victoria / Interior</option>
-                        <option value="672">672 — BC</option>
-                    </optgroup>
-                    <optgroup label="Alberta">
-                        <option value="403">403 — Calgary / Southern AB</option>
-                        <option value="587">587 — Alberta</option>
-                        <option value="780">780 — Edmonton / Northern AB</option>
-                        <option value="825">825 — Alberta</option>
-                    </optgroup>
-                    <optgroup label="Quebec">
-                        <option value="514">514 — Montreal</option>
-                        <option value="438">438 — Montreal</option>
-                        <option value="450">450 — Montreal area</option>
-                        <option value="579">579 — Quebec</option>
-                        <option value="418">418 — Quebec City</option>
-                        <option value="581">581 — Quebec City</option>
-                        <option value="819">819 — Eastern / Northern QC</option>
-                        <option value="873">873 — Quebec</option>
-                    </optgroup>
-                    <optgroup label="Manitoba / Saskatchewan">
-                        <option value="204">204 — Manitoba</option>
-                        <option value="431">431 — Manitoba</option>
-                        <option value="306">306 — Saskatchewan</option>
-                        <option value="639">639 — Saskatchewan</option>
-                    </optgroup>
-                    <optgroup label="Atlantic Canada">
-                        <option value="902">902 — Nova Scotia / PEI</option>
-                        <option value="782">782 — Nova Scotia / PEI</option>
-                        <option value="506">506 — New Brunswick</option>
-                        <option value="428">428 — New Brunswick</option>
-                        <option value="709">709 — Newfoundland &amp; Labrador</option>
-                        <option value="867">867 — Nunavut / NWT / Yukon</option>
-                    </optgroup>
-                    <optgroup label="United States">
-                        <option value="212">212 — New York City</option>
-                        <option value="310">310 — Los Angeles</option>
-                        <option value="305">305 — Miami</option>
-                        <option value="312">312 — Chicago</option>
-                        <option value="713">713 — Houston</option>
-                        <option value="404">404 — Atlanta</option>
-                        <option value="602">602 — Phoenix</option>
-                        <option value="303">303 — Denver</option>
-                        <option value="206">206 — Seattle</option>
-                        <option value="617">617 — Boston</option>
-                        <option value="202">202 — Washington DC</option>
-                        <option value="415">415 — San Francisco</option>
-                    </optgroup>
-                    <option value="other">Other (enter manually)</option>
-                </select>
-                <input type="text" id="dashCustomArea" placeholder="Enter area code" style="display:none; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; width:100px;">
-                <button class="save-btn" onclick="provisionNumber()">Provision My Number</button>
+                    <div class="dash-section">
+                        <h3>Your Number</h3>
+                        <p style="font-size:0.85em; color:#666; margin-bottom:10px;">Choose your area code and we'll provision your dedicated business number.</p>
+                        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                            <select id="dashAreaCode" style="padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; flex:1; min-width:150px;">
+                                <optgroup label="Toll-Free ($12/mo + $0.03/min)">
+                                    <option value="800">800 — Toll-Free</option>
+                                    <option value="888">888 — Toll-Free</option>
+                                    <option value="877">877 — Toll-Free</option>
+                                    <option value="866">866 — Toll-Free</option>
+                                    <option value="855">855 — Toll-Free</option>
+                                    <option value="844">844 — Toll-Free</option>
+                                    <option value="833">833 — Toll-Free</option>
+                                </optgroup>
+                                <optgroup label="Ontario">
+                                    <option value="416">416 — Toronto</option>
+                                    <option value="647" selected>647 — Toronto</option>
+                                    <option value="437">437 — Toronto</option>
+                                    <option value="905">905 — GTA</option>
+                                    <option value="289">289 — GTA</option>
+                                    <option value="365">365 — GTA</option>
+                                    <option value="613">613 — Ottawa / Eastern ON</option>
+                                    <option value="343">343 — Ottawa</option>
+                                    <option value="705">705 — Northern ON</option>
+                                    <option value="249">249 — Northern ON</option>
+                                    <option value="519">519 — Southwestern ON</option>
+                                    <option value="226">226 — Southwestern ON</option>
+                                    <option value="807">807 — Thunder Bay / NW ON</option>
+                                </optgroup>
+                                <optgroup label="British Columbia">
+                                    <option value="604">604 — Vancouver</option>
+                                    <option value="778">778 — BC</option>
+                                    <option value="236">236 — BC</option>
+                                    <option value="250">250 — Victoria / Interior</option>
+                                    <option value="672">672 — BC</option>
+                                </optgroup>
+                                <optgroup label="Alberta">
+                                    <option value="403">403 — Calgary / Southern AB</option>
+                                    <option value="587">587 — Alberta</option>
+                                    <option value="780">780 — Edmonton / Northern AB</option>
+                                    <option value="825">825 — Alberta</option>
+                                </optgroup>
+                                <optgroup label="Quebec">
+                                    <option value="514">514 — Montreal</option>
+                                    <option value="438">438 — Montreal</option>
+                                    <option value="450">450 — Montreal area</option>
+                                    <option value="579">579 — Quebec</option>
+                                    <option value="418">418 — Quebec City</option>
+                                    <option value="581">581 — Quebec City</option>
+                                    <option value="819">819 — Eastern / Northern QC</option>
+                                    <option value="873">873 — Quebec</option>
+                                </optgroup>
+                                <optgroup label="Manitoba / Saskatchewan">
+                                    <option value="204">204 — Manitoba</option>
+                                    <option value="431">431 — Manitoba</option>
+                                    <option value="306">306 — Saskatchewan</option>
+                                    <option value="639">639 — Saskatchewan</option>
+                                </optgroup>
+                                <optgroup label="Atlantic Canada">
+                                    <option value="902">902 — Nova Scotia / PEI</option>
+                                    <option value="782">782 — Nova Scotia / PEI</option>
+                                    <option value="506">506 — New Brunswick</option>
+                                    <option value="428">428 — New Brunswick</option>
+                                    <option value="709">709 — Newfoundland & Labrador</option>
+                                    <option value="867">867 — Nunavut / NWT / Yukon</option>
+                                </optgroup>
+                                <optgroup label="United States">
+                                    <option value="212">212 — New York City</option>
+                                    <option value="310">310 — Los Angeles</option>
+                                    <option value="305">305 — Miami</option>
+                                    <option value="312">312 — Chicago</option>
+                                    <option value="713">713 — Houston</option>
+                                    <option value="404">404 — Atlanta</option>
+                                    <option value="602">602 — Phoenix</option>
+                                    <option value="303">303 — Denver</option>
+                                    <option value="206">206 — Seattle</option>
+                                    <option value="617">617 — Boston</option>
+                                    <option value="202">202 — Washington DC</option>
+                                    <option value="415">415 — San Francisco</option>
+                                </optgroup>
+                                <option value="other">Other (enter manually)</option>
+                            </select>
+                            <input type="text" id="dashCustomArea" placeholder="Enter area code" style="display:none; padding:10px; border:1px solid #ddd; border-radius:8px; font-size:0.9em; width:100px;">
+                            <button class="save-btn" onclick="provisionNumber()">Provision My Number</button>
+                        </div>
+                        <div class="saved" id="provisionStatus" style="display:none; margin-top:10px;">✓ Number requested — we'll email you when it's ready</div>
+                        <p style="font-size:0.75em; color:#888; margin-top:8px;">Toll-free: <strong>$12/mo + $0.03/min</strong></p>
+                    </div>
+                </div>
             </div>
-            <div class="saved" id="provisionStatus" style="display:none; margin-top:10px;">✓ Number requested — we'll email you when it's ready</div>
-            <p style="font-size:0.75em; color:#888; margin-top:8px;">Toll-free: <strong>$12/mo + $0.03/min</strong></p>
         </div>
     </div>
 </div>
 
 <script>
+// Auto-open login modal when ?login is in the URL
+if (window.location.search.includes('login')) {
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => openLogin(), 300);
+    });
+}
+
 let selectedPlan = 'inbound';
 let selectedBonus = 0;
+let selectedBonusPack = '0';
 const planPrices = {'starter':37,'inbound-light':67,'inbound':97,'full':197,'full-pro':347,'whitelabel':0};
 
 function selectPlan(p) {
@@ -1097,6 +1313,7 @@ function togglePricing(forceAnnual) {
 function openSignup(plan) {
     selectPlan(plan || 'starter');
     selectedBonus = 0;
+    selectedBonusPack = '0';
     document.getElementById('signupModal').classList.add('active');
 }
 
@@ -1106,6 +1323,7 @@ function selectBonusPack(pack) {
     const packs = ['0', '100', '200'];
     
     selectedBonus = prices[pack] || 0;
+    selectedBonusPack = pack;
     
     labels.forEach((id, i) => {
         const el = document.getElementById(id);
@@ -1172,7 +1390,7 @@ function submitSignup(e) {
         password: document.getElementById('password').value,
         plan: selectedPlan,
         planPrice: (planPrices[selectedPlan] || 37).toString(),
-        bonusPack: ['0', '100', '200'].find(p => parseInt(p) === selectedBonus) || '0',
+        bonusPack: selectedBonusPack,
         areaCode: document.getElementById('areaCode').value === 'other'
             ? document.getElementById('customArea').value
             : document.getElementById('areaCode').value
@@ -1236,6 +1454,7 @@ function submitLogin(e) {
 }
 
 function showDashboard(name) {
+    document.querySelector('nav').style.display = 'none';
     document.querySelector('.hero').style.display = 'none';
     document.querySelector('.features').style.display = 'none';
     document.querySelector('.how').style.display = 'none';
@@ -1243,8 +1462,33 @@ function showDashboard(name) {
     document.querySelector('.who').style.display = 'none';
     document.querySelector('.proof').style.display = 'none';
     document.querySelector('.footer').style.display = 'none';
+    document.getElementById('preview-section').style.display = 'none';
+    document.getElementById('integrations-section').style.display = 'none';
+    document.getElementById('faq-section').style.display = 'none';
+    document.getElementById('floatingDemoWrapper').style.display = 'none';
     document.getElementById('dashboardView').style.display = 'block';
-    document.getElementById('dashUser').textContent = 'Welcome, ' + name;
+    document.getElementById('dashUser').textContent = name;
+    // Set avatar initials
+    const parts = name.trim().split(' ');
+    const initials = parts.length > 1 ? (parts[0][0] + parts[parts.length-1][0]).toUpperCase() : (name[0] || '?').toUpperCase();
+    document.getElementById('dashAvatar').textContent = initials;
+}
+
+function switchDashPanel(panel) {
+    document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + panel).classList.add('active');
+    document.querySelectorAll('.sb-nav a').forEach(a => a.classList.remove('active'));
+    event.target.closest('a').classList.add('active');
+}
+
+function toggleIntegration(btn) {
+    if (btn.textContent === 'Connected') {
+        btn.textContent = 'Connect';
+        btn.style.background = '#0f3460';
+    } else {
+        btn.textContent = 'Connected';
+        btn.style.background = '#16a34a';
+    }
 }
 
 function logout() {
@@ -1365,13 +1609,14 @@ if (savedToken) {
     showDashboard(localStorage.getItem('name') || 'User');
 }
 </script>
+</body>
+</html>
 
-
-
-
-<div style="position: fixed; bottom: 20px; right: 20px; z-index: 999; display: block;" id="floatingDemoWrapper">
-    <button onclick="openDemoCall()" style="background:#e94560; color:white; border:none; padding:14px 24px; border-radius:50px; font-size:1em; font-weight:700; cursor:pointer; box-shadow:0 4px 20px rgba(233,69,96,0.4); display:flex; align-items:center; gap:8px; transition:0.3s; position:relative;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" id="floatingDemoBtn">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<!-- Floating demo button -->
+<div style="position:fixed; bottom:20px; right:20px; z-index:999;" id="floatingDemoWrapper">
+    <button onclick="openDemoCall()" style="background:#e94560; color:white; border:none; padding:14px 24px; border-radius:50px; font-size:1em; font-weight:700; cursor:pointer; box-shadow:0 4px 20px rgba(233,69,96,0.4); display:flex; align-items:center; gap:8px; transition:0.3s; position:relative;"
+        onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'" id="floatingDemoBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         Try a Live Demo
     </button>
 </div>
@@ -1396,4 +1641,3 @@ if (savedToken) {
     setTimeout(checkFooter, 500);
 })();
 </script>
-</body></html>
